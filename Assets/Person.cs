@@ -6,7 +6,7 @@ public class Person : MonoBehaviour {
 	protected float targetX;
 	protected float targetY;
 
-	protected float targetEpsilon = 0.001f;
+	protected float targetEpsilon = 0.05f;
 	protected float charSpeed = 2f;
 
 	protected Rigidbody2D _rigidbody;
@@ -23,6 +23,9 @@ public class Person : MonoBehaviour {
 	protected string freeDirection;
 
 	protected Vector3 lastPosition;
+
+	public Vector2[] targets;
+	public int targetIndx;
 
 	public Transform cp;
 
@@ -88,6 +91,7 @@ public class Person : MonoBehaviour {
 		} else {
 			if ((diffX < targetEpsilon) && (diffY < targetEpsilon)) {
 				Stop ();
+
 			} else {
 			//	Debug.Log ("forbidden: " + forbiddenAxis);
 				if ( (!forbiddenAxis.Equals ("x")) && (diffX > diffY) || (forbiddenAxis.Equals("y"))) { //walk in X axis direction
@@ -108,6 +112,11 @@ public class Person : MonoBehaviour {
 			}
 		}
 
+	}
+	protected void selectNextTarget() {		
+		targetX = targets [targetIndx].x;
+		targetY = targets [targetIndx].y;
+		targetIndx = (targetIndx + 1) % targets.Length;
 	}
 	public void OnCollisionExit2D(Collision2D collision) {
 		forbiddenAxis = "0";
