@@ -21,12 +21,12 @@ public class Citizen : Person {
 		base.Update ();
 
 		float distance2target = Vector3.Distance (transform.position, currentTarget);
-		if ((!turned) && (distance2target < 0.5f)) {
+		if ((!turned) && (distance2target < 1.5f)) {
 			Debug.Log ("citizen select next target");
 			selectNextTarget ();
 		}
 	}
-	public void OnTriggerEnter2D(Collider2D collision) {		
+	public void OnTriggerEnter(Collider collision) {		
 		if (!turned) {
 			turned = true;
 			Debug.Log ("citizen found flyer");
@@ -34,6 +34,7 @@ public class Citizen : Person {
 		//	GetComponent<SpriteRenderer> ().sprite = citizen_turned;
 			this.tag = "Turned";
 			currentTarget = exitPosition.position;
+			agent.SetDestination (currentTarget);
 		}
 	}
 }

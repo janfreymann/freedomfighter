@@ -10,8 +10,8 @@ public class Person : MonoBehaviour {
 	protected float targetEpsilon = 0.05f;
 	protected float charSpeed = 2f;
 
-	protected Rigidbody2D _rigidbody;
-	protected Collider2D _collider;
+	protected Rigidbody _rigidbody;
+	protected Collider _collider;
 
 	protected string lastAxis;
 	protected string lastDirection;
@@ -25,19 +25,19 @@ public class Person : MonoBehaviour {
 
 	protected Vector3 lastPosition;
 
-	public Vector2[] targets;
+	public Transform[] targets;
 	public int targetIndx;
 
 	public TilesMap tm;
 
-	private NavMeshAgent agent;
+	protected NavMeshAgent agent;
 
 	//public Transform cp;
 
 	// Use this for initialization
 	public void Start () {
-		_rigidbody = GetComponent<Rigidbody2D> ();
-		_collider = GetComponent<Collider2D> ();
+		_rigidbody = GetComponent<Rigidbody> ();
+		_collider = GetComponent<Collider> ();
 		lastAxis = "x";
 		forbiddenAxis = "0";
 		lastFaxis = "x";
@@ -59,7 +59,7 @@ public class Person : MonoBehaviour {
 		return false; 
 	}
 	protected void selectNextTarget() {	
-		currentTarget = new Vector3(targets [targetIndx].x, targets [targetIndx].y, 0.0f);
+		currentTarget = new Vector3(targets [targetIndx].position.x, targets [targetIndx].position.y, 0.0f);
 		targetIndx = (targetIndx + 1) % targets.Length;
 		agent.SetDestination (currentTarget);
 	}

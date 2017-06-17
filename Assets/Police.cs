@@ -14,7 +14,6 @@ public class Police : Person {
 	// Use this for initialization
 	void Start () {
 		base.Start ();
-		charSpeed = 1.5f;
 		followingFugitive = false;
 	}
 	
@@ -36,7 +35,7 @@ public class Police : Person {
 	}
 
 	//public void OnTriggerEnter2D(Collider2D collision) {
-	void OnCollisionEnter2D(Collision2D  collision){
+	void OnCollisionEnter(Collision  collision){
 		//base.OnCollisionEnter2D ();
 		string t = collision.gameObject.tag;
 
@@ -48,7 +47,7 @@ public class Police : Person {
 		}
 	}
 
-	public void OnTriggerEnter2D(Collider2D collision) {
+	public void OnTriggerEnter(Collider collision) {
 		if (collision.gameObject.tag.Equals ("Flyer")) { // it is a flyer!
 			Destroy (collision.gameObject);
 			Debug.Log ("Policeman found flyer");
