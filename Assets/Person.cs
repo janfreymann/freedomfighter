@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Person : MonoBehaviour {
-	protected float targetX;
-	protected float targetY;
+	protected int targetX;
+	protected int targetY;
+
+	protected float tfX;
+	protected float tfY;
 
 	protected float targetEpsilon = 0.05f;
 	protected float charSpeed = 2f;
@@ -27,6 +30,8 @@ public class Person : MonoBehaviour {
 	public Vector2[] targets;
 	public int targetIndx;
 
+	public TilesMap tm;
+
 	//public Transform cp;
 
 	// Use this for initialization
@@ -48,178 +53,51 @@ public class Person : MonoBehaviour {
 	}
 
 	protected bool MoveToTarget() {
-		
-		float diffX = Mathf.Abs (targetX - transform.position.x);
-		float diffY = Mathf.Abs (targetY - transform.position.y);
+		PathFind.Point _from = tm.getPointForPos(transform.position.x, transform.position.y); //current position
+		PathFind.Point _to = new PathFind.Point(targetX, targetY); //target
+		List<PathFind.Point> path = PathFind.Pathfinding.FindPath(tm.grid, _from, _to);
+		if (path.Count > 0) {
+			PathFind.Point nextPoint = path [0];
+			Vector2 coords = tm.getCoordsForTile (nextPoint);
+			tfX = coords.x;
+			tfY = coords.y;
 
-	//	Debug.Log ("forbidden: " + forbiddenAxis);
+			//can walk:
 
-		if ( (((forbiddenAxis.Equals ("x")) && (diffY < targetEpsilon))) || (((forbiddenAxis.Equals ("y")) && (diffX < targetEpsilon))) ) {
-			followLastDirection = true;	
-		} 
-
-		if (runfreeCount > 0) {
-			//Debug.Log ("run free!");
-			runfreeCount--;
-			switch (freeDirection) {
-			case "up":
-				MoveUp ();
-				break;
-			case "down":
-				MoveDown ();
-				break;
-			case "left":
-				MoveLeft ();
-				break;
-			case "right":
-				MoveRight ();
-				break;
-			}
-		}
-		else if (followLastDirection) {
-			if (lastDirection == "up")
-				MoveUp ();
-			else if (lastDirection == "down")
-				MoveDown ();
-			else if (lastDirection == "left")
-				MoveLeft ();
-			else if (lastDirection == "right")
-				MoveRight ();
-
-			if (forbiddenAxis.Equals ("0"))
-				followLastDirection = false;
-		} else {
+			float x = transform.position.x;
+			float y = transform.position.y;
+			float diffX = Mathf.Abs (x - tfX);
+			float diffY = Mathf.Abs (y - tfY);
 			if ((diffX < targetEpsilon) && (diffY < targetEpsilon)) {
 				Stop ();
 				return true;
-
 			} else {
-			//	Debug.Log ("forbidden: " + forbiddenAxis);
-				if ( (!forbiddenAxis.Equals ("x")) && (diffX > diffY) || (forbiddenAxis.Equals("y"))) { //walk in X axis direction
-				//	Debug.Log("walkX" + diffX);
-					if (targetX < transform.position.x) {
-						MoveLeft ();
-					} else {
+				if (diffX > diffY) {
+					if (x < tfX)
 						MoveRight ();
-					}
-				} else { //walk in Y axis direction
-				//	Debug.Log("walkY " + diffY + " " + Time.renderedFrameCount);
-					if (targetY > transform.position.y) {
+					else
+						MoveLeft ();
+				} else {
+					if (y < tfY)
 						MoveUp ();
-					} else {
+					else
 						MoveDown ();
-					}
 				}
 			}
-		}
-		return false;
 
+		} else {
+			Debug.Log ("pathcount zero: " + _from.x + "/" + _from.y + " to " + _to.x + "/" + _to.y);
+		}
+
+
+		return false;
 	}
 	protected void selectNextTarget() {		
-		targetX = targets [targetIndx].x;
-		targetY = targets [targetIndx].y;
+		PathFind.Point p = tm.getPointForPos (targets [targetIndx].x, targets [targetIndx].y);
+		targetX = p.x;
+		targetY = p.y;
 		targetIndx = (targetIndx + 1) % targets.Length;
 	}
-	public void OnCollisionExit2D(Collision2D collision) {
-		forbiddenAxis = "0";
-		collisionFrameCount = 0;
-		//Debug.Log ("exit");
-	}
-	public void OnCollisionStay2D(Collision2D collision) {
-		OnCollisionEnter2D (collision);
-		collisionFrameCount++;
-		if ((collisionFrameCount > 15) && (Vector3.Distance(lastPosition, transform.position) < targetEpsilon/Time.deltaTime)) {
-		//	Debug.Log ("run free." + Vector3.Distance(lastPosition, transform.position));
-			runfreeCount = 10;
-			collisionFrameCount = 0;
-			//switch (lastDirection) {
-
-			/*case "up":
-				freeDirection = "right";
-				break;
-			case "down":
-				freeDirection = "left";
-				break;
-			case "left":
-				freeDirection = "up";
-				break;
-			case "right":
-				freeDirection = "down";
-				break;*/
-			//}
-			int dir = Mathf.RoundToInt(Random.Range(0.0f, 4.0f));
-			if (dir == 0) {
-				freeDirection = "left";
-			} else if (dir == 1) {
-				freeDirection = "right";
-			} else if (dir == 2) {
-				freeDirection = "up";
-			} else if (dir == 3) {
-				freeDirection = "down";
-			}
-
-
-		}
-		lastPosition = transform.position;
-	}
-	public void OnCollisionEnter2D(Collision2D  collision) 
-	{
-		//collisionFrameCount = 0;
-		//Debug.Log ("enter");
-		if (collision.gameObject.tag.Equals ("Wall")) {
-			Collider2D collider = collision.collider;
-			bool collideFromLeft = false;
-			bool collideFromTop = false;
-			bool collideFromRight = false;
-			bool collideFromBottom = false;
-			float RectWidth = this.GetComponent<Collider2D> ().bounds.size.x;
-			float RectHeight = this.GetComponent<Collider2D> ().bounds.size.y; 	
-
-			Vector3 center = collider.bounds.center;
-
-			float px = 0.0f;
-			float py = 0.0f;
-			for (int i = 0; i < collision.contacts.Length; i++) {
-				px += collision.contacts [i].point.x;
-				py += collision.contacts [i].point.y;
-			}
-			px /= (float) collision.contacts.Length;
-			py /= (float) collision.contacts.Length;
-			Vector3 contactPoint = new Vector3 (px, py, 0.0f);
-
-			if (contactPoint.y > center.y && //checks that circle is on top of rectangle
-				(contactPoint.x < center.x + RectWidth / 2 && contactPoint.x > center.x - RectWidth / 2)) {
-				collideFromTop = true;
-			}
-			else if (contactPoint.y < center.y &&
-				(contactPoint.x < center.x + RectWidth / 2 && contactPoint.x > center.x - RectWidth / 2)) {
-				collideFromBottom = true;
-			}
-			else if (contactPoint.x > center.x &&
-				(contactPoint.y < center.y + RectHeight / 2 && contactPoint.y > center.y - RectHeight / 2)) {
-				collideFromRight = true;
-			}
-			else if (contactPoint.x < center.x &&
-				(contactPoint.y < center.y + RectHeight / 2 && contactPoint.y > center.y - RectHeight / 2)) {
-				collideFromLeft = true;
-			}
-
-			//		cp.position = contactPoint;
-			if (collideFromLeft || collideFromRight) {
-				lastFaxis = forbiddenAxis = "x";
-				//Debug.Log ("set to x");
-			} else if (collideFromTop || collideFromBottom) {
-				lastFaxis = forbiddenAxis = "y";
-				//Debug.Log ("set to y");
-			}
-
-			//Debug.Log ("set to " + forbiddenAxis);
-		}
-
-
-	}
-
-		
 	protected void MoveLeft() {
 		_rigidbody.velocity = new Vector2 (-charSpeed, 0.0f);
 		lastAxis = "x";

@@ -23,8 +23,9 @@ public class Police : Person {
 		base.Update ();
 		if (followingFugitive) {
 			Debug.Log ("Following");
-			targetX = fugitive.transform.position.x;
-			targetY = fugitive.transform.position.y;
+			PathFind.Point p = tm.getPointForPos (fugitive.transform.position.x, fugitive.transform.position.y);
+			targetX = p.x;
+			targetY = p.y;
 
 			if (Vector2.Distance (new Vector2 (targetX, targetY), new Vector2( transform.position.x, transform.position.y)) > distanceToLose) {
 				followingFugitive = false;

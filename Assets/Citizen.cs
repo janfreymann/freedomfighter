@@ -21,10 +21,14 @@ public class Citizen : Person {
 		base.Update ();
 		MoveToTarget ();
 
-		float diffX = Mathf.Abs (targetX - transform.position.x);
-		float diffY = Mathf.Abs (targetY - transform.position.y);
+		Vector2 tv = tm.getCoordsForTile (new PathFind.Point(targetX, targetY));
+
+		float diffX = Mathf.Abs (tv.x - transform.position.x);
+		float diffY = Mathf.Abs (tv.y - transform.position.y);
 		if ((!turned) && (diffX < targetEpsilon) && (diffY < targetEpsilon)) {
 			selectNextTarget ();
+		} else {
+			Debug.Log ("diffX/diffY: " + diffX + "/" + diffY);
 		}
 	}
 	public void OnTriggerEnter2D(Collider2D collision) {
@@ -35,8 +39,9 @@ public class Citizen : Person {
 			Destroy (collision.gameObject);
 			GetComponent<SpriteRenderer> ().sprite = citizen_turned;
 			this.tag = "Turned";
-			targetX = exitPosition.position.x;
-			targetY = exitPosition.position.y;
+			PathFind.Point p = tm.getPointForPos (exitPosition.position.x, exitPosition.position.y);
+			targetX = p.x;
+			targetY = p.y;
 		}
 	}
 }

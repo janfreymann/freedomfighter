@@ -17,12 +17,12 @@ public class GodScript : MonoBehaviour {
 	void Start () {
 
 		policePaths = new List<List<Vector2>>{ };
-		policePaths.Add(new List<Vector2>{ new Vector2 (1.0f, -1.25f) });
+		policePaths.Add(new List<Vector2>{ new Vector2 (3.0f, 3.0f) });
 		//SpawnNPCs (policePaths, policePrefabs);
 		SpawnNPCs (policePaths, "p");
 
 		citizenPaths = new List<List<Vector2>>{ };
-		citizenPaths.Add(new List<Vector2>{ new Vector2 (1.0f, -1.5f), new Vector2(-1.0f, -1.5f) });
+		citizenPaths.Add(new List<Vector2>{ new Vector2 (12.0f, 12.0f), new Vector2(5.0f, 5.0f) });
 		//SpawnNPCs (citizenPaths, citizenPrefabs);
 		SpawnNPCs (citizenPaths, "c");
 	}
@@ -39,9 +39,11 @@ public class GodScript : MonoBehaviour {
 			if (npcType.Equals ("p")) {
 				var policeInstance = Instantiate (police, new Vector3 (paths [i] [0].x, paths [i] [0].y, 0.0f), Quaternion.identity) as Police;		
 				policeInstance.targets = paths [i].ToArray ();
+				policeInstance.tm = GetComponent<TilesMap> ();
 			} else if (npcType.Equals("c")) {
 				var citizenInstance = Instantiate (citizen, new Vector3 (paths [i] [0].x, paths [i] [0].y, 0.0f), Quaternion.identity) as Citizen;		
 				citizenInstance.targets = paths [i].ToArray ();
+				citizenInstance.tm = GetComponent<TilesMap> ();
 			}
 
 			//people.Add(p);
