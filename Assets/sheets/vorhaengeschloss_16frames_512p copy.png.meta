@@ -1,0 +1,372 @@
+fileFormatVersion: 2
+guid: c10eb0ee666dd40d7a749a00e125540c
+timeCreated: 1497741900
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: vorhaengeschloss_16frames_512p copy_0
+    21300002: vorhaengeschloss_16frames_512p copy_1
+    21300004: vorhaengeschloss_16frames_512p copy_2
+    21300006: vorhaengeschloss_16frames_512p copy_3
+    21300008: vorhaengeschloss_16frames_512p copy_4
+    21300010: vorhaengeschloss_16frames_512p copy_5
+    21300012: vorhaengeschloss_16frames_512p copy_6
+    21300014: vorhaengeschloss_16frames_512p copy_7
+    21300016: vorhaengeschloss_16frames_512p copy_8
+    21300018: vorhaengeschloss_16frames_512p copy_9
+    21300020: vorhaengeschloss_16frames_512p copy_10
+    21300022: vorhaengeschloss_16frames_512p copy_11
+    21300024: vorhaengeschloss_16frames_512p copy_12
+    21300026: vorhaengeschloss_16frames_512p copy_13
+    21300028: vorhaengeschloss_16frames_512p copy_14
+    21300030: vorhaengeschloss_16frames_512p copy_15
+    21300032: vorhaengeschloss_16frames_512p copy_16
+    21300034: vorhaengeschloss_16frames_512p copy_17
+    21300036: vorhaengeschloss_16frames_512p copy_18
+    21300038: vorhaengeschloss_16frames_512p copy_19
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_1
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_2
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_3
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_4
+      rect:
+        serializedVersion: 2
+        x: 1832
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_5
+      rect:
+        serializedVersion: 2
+        x: 2290
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_6
+      rect:
+        serializedVersion: 2
+        x: 2748
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_7
+      rect:
+        serializedVersion: 2
+        x: 3206
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_8
+      rect:
+        serializedVersion: 2
+        x: 3664
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_9
+      rect:
+        serializedVersion: 2
+        x: 4122
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_10
+      rect:
+        serializedVersion: 2
+        x: 4580
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_11
+      rect:
+        serializedVersion: 2
+        x: 5038
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_12
+      rect:
+        serializedVersion: 2
+        x: 5496
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_13
+      rect:
+        serializedVersion: 2
+        x: 5954
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_14
+      rect:
+        serializedVersion: 2
+        x: 6412
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_15
+      rect:
+        serializedVersion: 2
+        x: 6870
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_16
+      rect:
+        serializedVersion: 2
+        x: 7328
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_17
+      rect:
+        serializedVersion: 2
+        x: 7786
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_18
+      rect:
+        serializedVersion: 2
+        x: 8244
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vorhaengeschloss_16frames_512p copy_19
+      rect:
+        serializedVersion: 2
+        x: 8702
+        y: 0
+        width: 458
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,16 +12,32 @@ public class Citizen : Person {
 
 	public GodScript godScript;
 
+	private GameObject walkingSprite;
+	private GameObject bustedSprite;
+
 	// Use this for initialization
 	void Start () {
 		base.Start ();
 		charSpeed = 1.5f;
+		walkingSprite = transform.GetChild (0).gameObject;
+		bustedSprite = transform.GetChild (1).gameObject;
 		selectNextTarget ();
 	}
-	
+
+	public void bust() {
+		walkingSprite.GetComponent<SpriteRenderer> ().enabled = false;
+		bustedSprite.GetComponent<SpriteRenderer> ().enabled = true;
+	}
 	// Update is called once per frame
 	void Update () {
 		base.Update ();
+
+		if (tag.Equals ("Busted")) {
+			agent.isStopped = true;
+			return;
+		}
+
+
 		float distance2target = Vector3.Distance (transform.position, currentTarget);
 		//Debug.Log (distance2target);
 
@@ -49,7 +65,7 @@ public class Citizen : Person {
 				Debug.Log ("citizen found flyer");
 				godScript.addToScore(pointsForFlyer);
 				AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
-				AkSoundEngine.PostEvent ("Play_breathing", gameObject);
+				AkSoundEngine.PostEvent ("Play_shh", gameObject);
 
 				transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
 				this.tag = "Turned";
