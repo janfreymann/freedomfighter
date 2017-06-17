@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 0bb8230e965c8a04ba09e3b6e6f9edab
+timeCreated: 1497717193
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Gelato Script
+  fontNames:
+  - Gelato Script
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

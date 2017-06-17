@@ -28,8 +28,6 @@ public class Person : MonoBehaviour {
 	public Transform[] targets;
 	public int targetIndx;
 
-	public TilesMap tm;
-
 	protected NavMeshAgent agent;
 
 	//public Transform cp;
@@ -38,12 +36,6 @@ public class Person : MonoBehaviour {
 	public void Start () {
 		_rigidbody = GetComponent<Rigidbody> ();
 		_collider = GetComponent<Collider> ();
-		lastAxis = "x";
-		forbiddenAxis = "0";
-		lastFaxis = "x";
-		lastDirection = "up";
-		followLastDirection = false;
-		runfreeCount = 0;
 		agent = GetComponent<NavMeshAgent> ();
 	}
 	
@@ -58,7 +50,5 @@ public class Person : MonoBehaviour {
 		targetIndx = (targetIndx + 1) % targets.Length;
 		agent.SetDestination (currentTarget);
 	}
-
-
-
+		
 }

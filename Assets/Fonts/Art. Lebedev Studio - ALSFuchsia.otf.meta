@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a013bfcef01536b45a406204d5c357e7
+timeCreated: 1497717193
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ALS Fuchsia
+  fontNames:
+  - ALS Fuchsia
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

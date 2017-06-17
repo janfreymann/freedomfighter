@@ -57,23 +57,15 @@ public class PlayerCharacter : Person {
 	}
 	protected void MoveLeft() {
 		_rigidbody.velocity = new Vector3 (-charSpeed, 0.0f,  0.0f);
-		lastDirection = "left";
-		//Debug.Log ("moveleft");
 	}
 	protected void MoveRight() {
 		_rigidbody.velocity = new Vector3 (charSpeed, 0.0f, 0.0f);
-		lastDirection = "right";
-		//Debug.Log ("moveright");
 	}
 	protected void MoveUp() {
 		_rigidbody.velocity = new Vector3 (0.0f, 0.0f, charSpeed);
-		lastDirection = "up";
-		//Debug.Log ("moveup");
 	}
 	protected void MoveDown() {
 		_rigidbody.velocity = new Vector3 (0.0f, 0.0f, -charSpeed);
-		lastDirection = "down";
-		//Debug.Log ("movedown");
 	}
 	protected void Stop() {
 		_rigidbody.velocity = new Vector3 (0.0f, 0.0f, 0.0f);

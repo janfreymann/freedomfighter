@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f2f4e5f6d0f76b9468fe93e3eef70db0
+timeCreated: 1497721967
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Salamander Script Bold
+  fontNames:
+  - Salamander Script Bold
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

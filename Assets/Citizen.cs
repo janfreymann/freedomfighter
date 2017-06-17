@@ -8,7 +8,7 @@ public class Citizen : Person {
 
 	public Sprite citizen_turned;
 	public Transform exitPosition;
-	private bool turned = false;
+	public bool turned = false;
 
 	public GodScript godScript;
 
@@ -24,7 +24,7 @@ public class Citizen : Person {
 		base.Update ();
 
 		float distance2target = Vector3.Distance (transform.position, currentTarget);
-		Debug.Log (distance2target);
+		//Debug.Log (distance2target);
 
 		if (distance2target < 1.5f) {
 
@@ -46,6 +46,7 @@ public class Citizen : Person {
 			turned = true;
 			Debug.Log ("citizen found flyer");
 			godScript.addToScore(pointsForFlyer);
+			Destroy(collision.gameObject);
 			//godScript.scoreText.text = godScript.score.ToString();
 
 			transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;

@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GodScript : MonoBehaviour {
-	public int score;
+	public int score = 0;
+	public const float arrestThreshold = 2.0f;
 
 	public DynamicText scoreText;
 
-	public Police police;
-	public Citizen citizen;
+	//public Police police;
+	//public Citizen citizen;
+	public PlayerCharacter player;
 
 	public Transform gravityFix;
 
-	//public List<Person> policePrefabs;
+	public List<Person> policePrefabs;
 	//public List<List<Vector2>> policePaths;
 
 	//public List<Person> citizenPrefabs;
@@ -20,7 +22,8 @@ public class GodScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		score = 0;
+		
+		UpdateScore (0);
 		//policePaths = new List<List<Vector2>>{ };
 		//policePaths.Add(new List<Vector2>{ new Vector2 (3.0f, 3.0f) });
 		//SpawnNPCs (policePaths, policePrefabs);
@@ -35,11 +38,18 @@ public class GodScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+
+
+	}
+
+	private void UpdateScore(int d)
+	{
+		score += d;
+		scoreText.SetText ("Score: " + score.ToString());
 	}
 
 	public void addToScore(int d) {
-		score += d;
-		scoreText.SetText (score.ToString ());
+		UpdateScore (d);
 
 		if (score > 70) {
 			AkSoundEngine.SetState ("RevoState", "level5");
@@ -55,7 +65,7 @@ public class GodScript : MonoBehaviour {
 		}
 
 	}
-
+		
 	/*void SpawnNPCs(List<List<Vector2>> paths, string npcType){
 		//void SpawnNPCs(List<List<Vector2>> paths, out List<Person> people){
 		for(int i = 0; i < paths.Count; i++)		{	
