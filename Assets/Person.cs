@@ -27,7 +27,7 @@ public class Person : MonoBehaviour {
 	public Vector2[] targets;
 	public int targetIndx;
 
-	public Transform cp;
+	//public Transform cp;
 
 	// Use this for initialization
 	public void Start () {
@@ -47,7 +47,7 @@ public class Person : MonoBehaviour {
 		transform.rotation = Quaternion.identity;
 	}
 
-	protected void MoveToTarget() {
+	protected bool MoveToTarget() {
 		
 		float diffX = Mathf.Abs (targetX - transform.position.x);
 		float diffY = Mathf.Abs (targetY - transform.position.y);
@@ -59,7 +59,7 @@ public class Person : MonoBehaviour {
 		} 
 
 		if (runfreeCount > 0) {
-			Debug.Log ("run free!");
+			//Debug.Log ("run free!");
 			runfreeCount--;
 			switch (freeDirection) {
 			case "up":
@@ -91,6 +91,7 @@ public class Person : MonoBehaviour {
 		} else {
 			if ((diffX < targetEpsilon) && (diffY < targetEpsilon)) {
 				Stop ();
+				return true;
 
 			} else {
 			//	Debug.Log ("forbidden: " + forbiddenAxis);
@@ -111,6 +112,7 @@ public class Person : MonoBehaviour {
 				}
 			}
 		}
+		return false;
 
 	}
 	protected void selectNextTarget() {		
@@ -164,53 +166,57 @@ public class Person : MonoBehaviour {
 	{
 		//collisionFrameCount = 0;
 		//Debug.Log ("enter");
-		Collider2D collider = collision.collider;
-		bool collideFromLeft = false;
-		bool collideFromTop = false;
-		bool collideFromRight = false;
-		bool collideFromBottom = false;
-		float RectWidth = this.GetComponent<Collider2D> ().bounds.size.x;
-		float RectHeight = this.GetComponent<Collider2D> ().bounds.size.y; 	
+		if (collision.gameObject.tag.Equals ("Wall")) {
+			Collider2D collider = collision.collider;
+			bool collideFromLeft = false;
+			bool collideFromTop = false;
+			bool collideFromRight = false;
+			bool collideFromBottom = false;
+			float RectWidth = this.GetComponent<Collider2D> ().bounds.size.x;
+			float RectHeight = this.GetComponent<Collider2D> ().bounds.size.y; 	
 
-		Vector3 center = collider.bounds.center;
+			Vector3 center = collider.bounds.center;
 
-		float px = 0.0f;
-		float py = 0.0f;
-		for (int i = 0; i < collision.contacts.Length; i++) {
-			px += collision.contacts [i].point.x;
-			py += collision.contacts [i].point.y;
-		}
-		px /= (float) collision.contacts.Length;
-		py /= (float) collision.contacts.Length;
-		Vector3 contactPoint = new Vector3 (px, py, 0.0f);
+			float px = 0.0f;
+			float py = 0.0f;
+			for (int i = 0; i < collision.contacts.Length; i++) {
+				px += collision.contacts [i].point.x;
+				py += collision.contacts [i].point.y;
+			}
+			px /= (float) collision.contacts.Length;
+			py /= (float) collision.contacts.Length;
+			Vector3 contactPoint = new Vector3 (px, py, 0.0f);
 
-		if (contactPoint.y > center.y && //checks that circle is on top of rectangle
-			(contactPoint.x < center.x + RectWidth / 2 && contactPoint.x > center.x - RectWidth / 2)) {
-			collideFromTop = true;
-		}
-		else if (contactPoint.y < center.y &&
-			(contactPoint.x < center.x + RectWidth / 2 && contactPoint.x > center.x - RectWidth / 2)) {
-			collideFromBottom = true;
-		}
-		else if (contactPoint.x > center.x &&
-			(contactPoint.y < center.y + RectHeight / 2 && contactPoint.y > center.y - RectHeight / 2)) {
-			collideFromRight = true;
-		}
-		else if (contactPoint.x < center.x &&
-			(contactPoint.y < center.y + RectHeight / 2 && contactPoint.y > center.y - RectHeight / 2)) {
-			collideFromLeft = true;
+			if (contactPoint.y > center.y && //checks that circle is on top of rectangle
+				(contactPoint.x < center.x + RectWidth / 2 && contactPoint.x > center.x - RectWidth / 2)) {
+				collideFromTop = true;
+			}
+			else if (contactPoint.y < center.y &&
+				(contactPoint.x < center.x + RectWidth / 2 && contactPoint.x > center.x - RectWidth / 2)) {
+				collideFromBottom = true;
+			}
+			else if (contactPoint.x > center.x &&
+				(contactPoint.y < center.y + RectHeight / 2 && contactPoint.y > center.y - RectHeight / 2)) {
+				collideFromRight = true;
+			}
+			else if (contactPoint.x < center.x &&
+				(contactPoint.y < center.y + RectHeight / 2 && contactPoint.y > center.y - RectHeight / 2)) {
+				collideFromLeft = true;
+			}
+
+			//		cp.position = contactPoint;
+			if (collideFromLeft || collideFromRight) {
+				lastFaxis = forbiddenAxis = "x";
+				//Debug.Log ("set to x");
+			} else if (collideFromTop || collideFromBottom) {
+				lastFaxis = forbiddenAxis = "y";
+				//Debug.Log ("set to y");
+			}
+
+			//Debug.Log ("set to " + forbiddenAxis);
 		}
 
-		cp.position = contactPoint;
-		if (collideFromLeft || collideFromRight) {
-			lastFaxis = forbiddenAxis = "x";
-			Debug.Log ("set to x");
-		} else if (collideFromTop || collideFromBottom) {
-			lastFaxis = forbiddenAxis = "y";
-			Debug.Log ("set to y");
-		}
 
-		//Debug.Log ("set to " + forbiddenAxis);
 	}
 
 		
