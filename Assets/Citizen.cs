@@ -8,7 +8,7 @@ public class Citizen : Person {
 
 	public Sprite citizen_turned;
 	public Transform exitPosition;
-	private bool turned = false;
+	public bool turned = false;
 
 	public GodScript godScript;
 
@@ -23,7 +23,7 @@ public class Citizen : Person {
 	void Update () {
 		base.Update ();
 		float distance2target = Vector3.Distance (transform.position, currentTarget);
-		Debug.Log (distance2target);
+		//Debug.Log (distance2target);
 
 		if (distance2target < 1.5f) {
 			if (turned)  // near exit

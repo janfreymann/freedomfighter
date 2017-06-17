@@ -9,19 +9,35 @@ public class Police : Person {
 
 	private float distanceToLose = 3f;
 
-	private bool followingFugitive;
+	public bool followingFugitive;
+
+	public GodScript godObject;
 
 	// Use this for initialization
 	void Start () {
 		base.Start ();
 		followingFugitive = false;
 		selectNextTarget ();
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		base.Update ();
+
+//		float distanceToCitizen = Vector3.Distance (police.transform.position, citizen.transform.position);
+//
+//		if (citizen.turned && distanceToCitizen < arrestThreshold) {
+//			followingFugitive = true;
+//
+//		}
+//
+//		if (distanceToPlayer < arrestThreshold) {
+//			followPlayer = true;
+//		}
+//
+//
+
+
 		if (followingFugitive) { //chasing mode
 			Debug.Log ("Following");
 			currentTarget = fugitive.transform.position;
@@ -41,18 +57,17 @@ public class Police : Person {
 	}
 
 	//public void OnTriggerEnter2D(Collider2D collision) {
-	void OnCollisionEnter(Collision  collision){
-		//base.OnCollisionEnter2D ();
-		string t = collision.gameObject.tag;
-
-
-		 if ((t.Equals("Turned") || (t.Equals("Player")))){
-			followingFugitive = true;
-			fugitive = collision.gameObject;
-			Debug.Log ("Gotcha!");
-		}
-	}
-
+//	void OnCollisionEnter(Collision  collision){
+//		//base.OnCollisionEnter2D ();
+//		string t = collision.gameObject.tag;
+//
+//		 if ((t.Equals("Turned") || (t.Equals("Player")))){
+//			followingFugitive = true;
+//			fugitive = collision.gameObject;
+//			Debug.Log ("Gotcha!");
+//		}
+//	}
+//
 	public void OnTriggerEnter(Collider collision) {
 		if (collision.gameObject.tag.Equals ("Flyer")) { // it is a flyer!
 			Destroy (collision.gameObject);

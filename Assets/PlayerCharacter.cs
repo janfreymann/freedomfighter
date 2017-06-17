@@ -55,19 +55,15 @@ public class PlayerCharacter : Person {
 	}
 	protected void MoveLeft() {
 		_rigidbody.velocity = new Vector3 (-charSpeed, 0.0f,  0.0f);
-		lastDirection = "left";
 	}
 	protected void MoveRight() {
 		_rigidbody.velocity = new Vector3 (charSpeed, 0.0f, 0.0f);
-		lastDirection = "right";
 	}
 	protected void MoveUp() {
 		_rigidbody.velocity = new Vector3 (0.0f, 0.0f, charSpeed);
-		lastDirection = "up";
 	}
 	protected void MoveDown() {
 		_rigidbody.velocity = new Vector3 (0.0f, 0.0f, -charSpeed);
-		lastDirection = "down";
 	}
 	protected void Stop() {
 		_rigidbody.velocity = new Vector3 (0.0f, 0.0f, 0.0f);
