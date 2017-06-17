@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Police : Person {
 
+	private const float distanceToFollow = 3f;
 	//public PlayerCharacter player;
-	public GameObject fugitive;
+	public Person fugitive;
 
-	private float distanceToLose = 3f;
+	private const float distanceToLose = 5f;
 
 	public bool followingFugitive;
 
@@ -24,20 +25,31 @@ public class Police : Person {
 	void Update () {
 		base.Update ();
 
-//		float distanceToCitizen = Vector3.Distance (police.transform.position, citizen.transform.position);
-//
-//		if (citizen.turned && distanceToCitizen < arrestThreshold) {
-//			followingFugitive = true;
-//
-//		}
-//
-//		if (distanceToPlayer < arrestThreshold) {
-//			followPlayer = true;
-//		}
-//
-//
+		followingFugitive = false;
+		float distanceToClosestFugitive = 1000f;
+		Person closestFugitive = new Person();
+		foreach (Citizen citizen in godObject.citizenPrefabs) {
+			if (citizen!= null && citizen.turned) {
+				float distanceToCitizen = Vector3.Distance (transform.position, citizen.transform.position);
+				Debug.Log ("Distance to citizen " + distanceToCitizen.ToString ());
+				if ((distanceToCitizen < distanceToFollow) && (distanceToCitizen <= distanceToClosestFugitive)) {
+					closestFugitive = citizen;
+					distanceToClosestFugitive = distanceToCitizen;
+					followingFugitive = true;
+				}	
+			}
+		}
 
+		float distanceToPlayer = Vector3.Distance (transform.position, godObject.player.transform.position);
+		if ((distanceToPlayer < distanceToFollow) && (distanceToPlayer <= distanceToClosestFugitive)) {
+			Debug.Log ("Distance to player " + distanceToPlayer.ToString ());
+			closestFugitive = godObject.player;
+			distanceToClosestFugitive = distanceToPlayer;
+			followingFugitive = true;
+		}
 
+		fugitive = closestFugitive;
+			
 		if (followingFugitive) { //chasing mode
 			Debug.Log ("Following");
 			currentTarget = fugitive.transform.position;
@@ -47,27 +59,16 @@ public class Police : Person {
 				selectNextTarget ();
 			}
 		} else { //patrol mode
+			Debug.Log ("Continue patrolling");
 			float distance2target = Vector3.Distance (transform.position, currentTarget);
-			if (distance2target < 1.5f) {
+			if (distance2target < 1.0f) {
 				Debug.Log ("police select next target");
 				selectNextTarget ();
 			}
 		}
 
 	}
-
-	//public void OnTriggerEnter2D(Collider2D collision) {
-//	void OnCollisionEnter(Collision  collision){
-//		//base.OnCollisionEnter2D ();
-//		string t = collision.gameObject.tag;
-//
-//		 if ((t.Equals("Turned") || (t.Equals("Player")))){
-//			followingFugitive = true;
-//			fugitive = collision.gameObject;
-//			Debug.Log ("Gotcha!");
-//		}
-//	}
-//
+		
 	public void OnTriggerEnter(Collider collision) {
 		if (collision.gameObject.tag.Equals ("Flyer")) { // it is a flyer!
 			Destroy (collision.gameObject);
