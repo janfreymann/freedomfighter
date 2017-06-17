@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GodScript : MonoBehaviour {
+	public int score;
+
+	public GUIText scoreText;
 
 	public Police police;
 	public Citizen citizen;
 
 	public Transform gravityFix;
 
-	public List<Person> policePrefabs;
-	public List<List<Vector2>> policePaths;
+	//public List<Person> policePrefabs;
+	//public List<List<Vector2>> policePaths;
 
-	public List<Person> citizenPrefabs;
-	public List<List<Vector2>> citizenPaths;
+	//public List<Person> citizenPrefabs;
+	//public List<List<Vector2>> citizenPaths;
 
 	// Use this for initialization
 	void Start () {
-
-		policePaths = new List<List<Vector2>>{ };
-		policePaths.Add(new List<Vector2>{ new Vector2 (3.0f, 3.0f) });
+		score = 0;
+		//policePaths = new List<List<Vector2>>{ };
+		//policePaths.Add(new List<Vector2>{ new Vector2 (3.0f, 3.0f) });
 		//SpawnNPCs (policePaths, policePrefabs);
 	//	SpawnNPCs (policePaths, "p");
 
-		citizenPaths = new List<List<Vector2>>{ };
-		citizenPaths.Add(new List<Vector2>{ new Vector2 (12.0f, 12.0f), new Vector2(5.0f, 5.0f) });
+		//citizenPaths = new List<List<Vector2>>{ };
+		//citizenPaths.Add(new List<Vector2>{ new Vector2 (12.0f, 12.0f), new Vector2(5.0f, 5.0f) });
 		//SpawnNPCs (citizenPaths, citizenPrefabs);
 	//	SpawnNPCs (citizenPaths, "c");
 	}
