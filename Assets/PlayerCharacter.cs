@@ -50,7 +50,7 @@ public class PlayerCharacter : Person {
 		}
 	}
 	private void dropFlyer() {
-		Transform nFlyer = Instantiate (flyerPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+		Transform nFlyer = Instantiate (flyerPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 		AkSoundEngine.PostEvent ("Play_FlyerDrop", gameObject);
 	}
 	protected void MoveLeft() {

@@ -11,6 +11,7 @@ public class Police : Person {
 	private const float distanceToLose = 10f;
 	private const float distanceToBust = 2f;
 
+	public float distanceToFugitive = 0.0f;
 	public bool followingFugitive;
 
 	public GodScript godObject;
@@ -50,17 +51,29 @@ public class Police : Person {
 		}
 
 		fugitive = closestFugitive;
-			
+
+
+
 		if (followingFugitive) { //chasing mode
-			Debug.Log ("Following");
+			Debug.Log ("closest: " + fugitive.tag);
 			currentTarget = fugitive.transform.position;
 			agent.SetDestination (currentTarget);
-			if (Vector2.Distance (currentTarget, transform.position) > distanceToLose) {
+			distanceToFugitive = Vector2.Distance (currentTarget, transform.position);
+			if (Vector3.Distance (currentTarget, transform.position) > distanceToLose) {
 				followingFugitive = false;
 				Debug.Log ("police lost fugitive, select patrol target");
 				selectNextTarget ();
-			} else if (Vector2.Distance (currentTarget, transform.position) < distanceToBust) {
-				Debug.Log ("busted!");
+			} else if (Vector3.Distance (currentTarget, transform.position) < distanceToBust) {
+				//Debug.Log ("busted! " + fugitive.tag + " distance " + );
+				if (fugitive.tag.Equals ("Turned")) {
+					AkSoundEngine.PostEvent ("Play_BustCititzen", gameObject);
+					//todo animation
+					Destroy (fugitive.gameObject);
+				} else if (fugitive.tag.Equals ("Player")) {
+					AkSoundEngine.PostEvent ("Play_bust_player", gameObject);
+					//todo animation
+					Destroy (fugitive.gameObject);
+				}
 			}
 		} else { //patrol mode
 			Debug.Log ("Continue patrolling");
