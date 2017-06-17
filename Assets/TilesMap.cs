@@ -17,6 +17,18 @@ public class TilesMap : MonoBehaviour {
 			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
 			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
 			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true},
 			{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true}
 		};
 

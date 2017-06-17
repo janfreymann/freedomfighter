@@ -19,29 +19,21 @@ public class Citizen : Person {
 	// Update is called once per frame
 	void Update () {
 		base.Update ();
-		MoveToTarget ();
 
-		Vector2 tv = tm.getCoordsForTile (new PathFind.Point(targetX, targetY));
-
-		float diffX = Mathf.Abs (tv.x - transform.position.x);
-		float diffY = Mathf.Abs (tv.y - transform.position.y);
-		if ((!turned) && (diffX < targetEpsilon) && (diffY < targetEpsilon)) {
+		float distance2target = Vector3.Distance (transform.position, currentTarget);
+		if ((!turned) && (distance2target < 0.5f)) {
+			Debug.Log ("citizen select next target");
 			selectNextTarget ();
-		} else {
-			Debug.Log ("diffX/diffY: " + diffX + "/" + diffY);
 		}
 	}
-	public void OnTriggerEnter2D(Collider2D collision) {
-		
+	public void OnTriggerEnter2D(Collider2D collision) {		
 		if (!turned) {
 			turned = true;
 			Debug.Log ("citizen found flyer");
 			Destroy (collision.gameObject);
-			GetComponent<SpriteRenderer> ().sprite = citizen_turned;
+		//	GetComponent<SpriteRenderer> ().sprite = citizen_turned;
 			this.tag = "Turned";
-			PathFind.Point p = tm.getPointForPos (exitPosition.position.x, exitPosition.position.y);
-			targetX = p.x;
-			targetY = p.y;
+			currentTarget = exitPosition.position;
 		}
 	}
 }

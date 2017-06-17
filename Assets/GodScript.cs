@@ -34,14 +34,14 @@ public class GodScript : MonoBehaviour {
 
 	void SpawnNPCs(List<List<Vector2>> paths, string npcType){
 		//void SpawnNPCs(List<List<Vector2>> paths, out List<Person> people){
-		for(int i = 0; i < paths.Count; i++)		{
-			
-			if (npcType.Equals ("p")) {
-				var policeInstance = Instantiate (police, new Vector3 (paths [i] [0].x, paths [i] [0].y, 0.0f), Quaternion.identity) as Police;		
+		for(int i = 0; i < paths.Count; i++)		{	
+			Vector2 rp = GetComponent<TilesMap>().getCoordsForTile(new PathFind.Point((int) paths[i][0].x, (int) paths[i][0].y));
+			if (npcType.Equals ("p")) {				
+				var policeInstance = Instantiate (police, new Vector3 (rp.x, rp.y, 0.0f), Quaternion.identity) as Police;		
 				policeInstance.targets = paths [i].ToArray ();
 				policeInstance.tm = GetComponent<TilesMap> ();
 			} else if (npcType.Equals("c")) {
-				var citizenInstance = Instantiate (citizen, new Vector3 (paths [i] [0].x, paths [i] [0].y, 0.0f), Quaternion.identity) as Citizen;		
+				var citizenInstance = Instantiate (citizen, new Vector3 (rp.x, rp.y, 0.0f), Quaternion.identity) as Citizen;		
 				citizenInstance.targets = paths [i].ToArray ();
 				citizenInstance.tm = GetComponent<TilesMap> ();
 			}
