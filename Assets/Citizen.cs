@@ -32,6 +32,7 @@ public class Citizen : Person {
 			Debug.Log ("citizen found flyer");
 			Destroy (collision.gameObject);
 		//	GetComponent<SpriteRenderer> ().sprite = citizen_turned;
+			transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
 			this.tag = "Turned";
 			currentTarget = exitPosition.position;
 			agent.SetDestination (currentTarget);
