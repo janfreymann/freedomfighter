@@ -57,6 +57,7 @@ public class Police : Person {
 		if (collision.gameObject.tag.Equals ("Flyer")) { // it is a flyer!
 			Destroy (collision.gameObject);
 			Debug.Log ("Policeman found flyer");
+			AkSoundEngine.PostEvent ("Play_tearFlyer", gameObject);
 		}
 	}
 }

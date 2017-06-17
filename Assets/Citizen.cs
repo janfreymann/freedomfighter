@@ -22,17 +22,17 @@ public class Citizen : Person {
 	// Update is called once per frame
 	void Update () {
 		base.Update ();
-
 		float distance2target = Vector3.Distance (transform.position, currentTarget);
 		Debug.Log (distance2target);
 
 		if (distance2target < 1.5f) {
-
 			if (turned)  // near exit
 			{
 				Debug.Log ("citizen reached exit");
 				godScript.addToScore(pointsForExit);
 				//godScript.scoreText.text = godScript.score.ToString();
+				AkSoundEngine.PostEvent("Play_score", gameObject);
+
 				Destroy(gameObject);
 			} else
 			{
@@ -46,12 +46,16 @@ public class Citizen : Person {
 			turned = true;
 			Debug.Log ("citizen found flyer");
 			godScript.addToScore(pointsForFlyer);
+			AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
+			AkSoundEngine.PostEvent ("Play_breathing", gameObject);
 			//godScript.scoreText.text = godScript.score.ToString();
 
 			transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
 			this.tag = "Turned";
 			currentTarget = exitPosition.position;
 			agent.SetDestination (currentTarget);
+
+			Destroy (collision.gameObject);
 		}
 	}
 }
