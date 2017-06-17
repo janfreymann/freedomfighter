@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Police : Person {
 
-	private const float distanceToFollow = 3f;
+	private const float distanceToFollow = 5f;
 	//public PlayerCharacter player;
 	public Person fugitive;
 
-	private const float distanceToLose = 5f;
+	private const float distanceToLose = 10f;
+	private const float distanceToBust = 2f;
 
 	public bool followingFugitive;
 
@@ -27,7 +28,7 @@ public class Police : Person {
 
 		followingFugitive = false;
 		float distanceToClosestFugitive = 1000f;
-		Person closestFugitive = new Person();
+		Person closestFugitive = null;
 		foreach (Citizen citizen in godObject.citizenPrefabs) {
 			if (citizen!= null && citizen.turned) {
 				float distanceToCitizen = Vector3.Distance (transform.position, citizen.transform.position);
@@ -53,10 +54,13 @@ public class Police : Person {
 		if (followingFugitive) { //chasing mode
 			Debug.Log ("Following");
 			currentTarget = fugitive.transform.position;
+			agent.SetDestination (currentTarget);
 			if (Vector2.Distance (currentTarget, transform.position) > distanceToLose) {
 				followingFugitive = false;
 				Debug.Log ("police lost fugitive, select patrol target");
 				selectNextTarget ();
+			} else if (Vector2.Distance (currentTarget, transform.position) < distanceToBust) {
+				Debug.Log ("busted!");
 			}
 		} else { //patrol mode
 			Debug.Log ("Continue patrolling");
