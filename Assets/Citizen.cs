@@ -42,20 +42,22 @@ public class Citizen : Person {
 		}
 	}
 	public void OnTriggerEnter(Collider collision) {		
-		if (!turned) {
-			turned = true;
-			Debug.Log ("citizen found flyer");
-			godScript.addToScore(pointsForFlyer);
-			AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
-			AkSoundEngine.PostEvent ("Play_breathing", gameObject);
-			//godScript.scoreText.text = godScript.score.ToString();
+		if (collision.gameObject.tag.Equals("Flyer"))
+		{
+			if (!turned) {
+				turned = true;
+				Debug.Log ("citizen found flyer");
+				godScript.addToScore(pointsForFlyer);
+				AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
+				AkSoundEngine.PostEvent ("Play_breathing", gameObject);
 
-			transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
-			this.tag = "Turned";
-			currentTarget = exitPosition.position;
-			agent.SetDestination (currentTarget);
+				transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
+				this.tag = "Turned";
+				currentTarget = exitPosition.position;
+				agent.SetDestination (currentTarget);
 
-			Destroy (collision.gameObject);
+				Destroy (collision.gameObject);
+			}		
 		}
 	}
 }
