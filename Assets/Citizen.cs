@@ -5,6 +5,7 @@ using UnityEngine;
 public class Citizen : Person {
 	public Sprite citizen_turned;
 	public Transform exitPosition;
+	public MusicControl mControl;
 
 	private bool turned = false;
 
@@ -36,6 +37,7 @@ public class Citizen : Person {
 			this.tag = "Turned";
 			currentTarget = exitPosition.position;
 			agent.SetDestination (currentTarget);
+			mControl.addCitizen ();
 		}
 	}
 }

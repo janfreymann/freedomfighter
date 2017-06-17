@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerCharacter : Person {
 
 	public Transform flyerPrefab;
+
+	bool running = false;
+	float lastRunningEvent = 100.0f;
+	float runningEventInterval = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -17,14 +22,19 @@ public class PlayerCharacter : Person {
 		base.Update ();
 	
 		if (Input.GetKey (KeyCode.UpArrow)) {			
+			running = true;
 			MoveUp();
 		} else if (Input.GetKey (KeyCode.DownArrow)) {			
+			running = true;
 			MoveDown();
 		} else if (Input.GetKey (KeyCode.LeftArrow)) {
+			running = true;
 			MoveLeft ();
 		} else if (Input.GetKey (KeyCode.RightArrow)) {
+			running = true;
 			MoveRight ();
 		} else {
+			running = false;
 			Stop ();
 		}
 			
@@ -32,13 +42,18 @@ public class PlayerCharacter : Person {
 		if(Input.GetKeyUp(KeyCode.Space)) {
 			dropFlyer ();
 		}
-	}
-	public new void onCollisionEnter2D() {
-	}
-	public new void onCollisionExit2D() {
+
+		if (running) {
+			lastRunningEvent += Time.deltaTime;
+			if (lastRunningEvent > runningEventInterval) {
+				AkSoundEngine.PostEvent ("Play_ShoeRun", gameObject);
+				lastRunningEvent = 0.0f;
+			}
+		}
 	}
 	private void dropFlyer() {
 		Transform nFlyer = Instantiate (flyerPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+		AkSoundEngine.PostEvent ("Play_FlyerDrop", gameObject);
 	}
 	protected void MoveLeft() {
 		_rigidbody.velocity = new Vector3 (-charSpeed, 0.0f,  0.0f);
