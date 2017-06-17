@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerCharacter : Person {
 
 	public Transform flyerPrefab;
+	public bool alive; 
 
 	bool running = false;
 	float lastRunningEvent = 100.0f;
@@ -14,6 +15,7 @@ public class PlayerCharacter : Person {
 	// Use this for initialization
 	void Start () {
 		base.Start ();
+		alive = true;
 		charSpeed = 5f;
 	}
 	
@@ -21,13 +23,25 @@ public class PlayerCharacter : Person {
 	void Update () {
 		base.Update ();
 	
-		if (Input.GetKey (KeyCode.UpArrow)) {			
+		if (Input.GetKey (KeyCode.UpArrow)) {	
 			running = true;
-			MoveUp();
+			if (Input.GetKey (KeyCode.RightArrow)) {
+				MoveUpRight ();
+			} else if (Input.GetKey (KeyCode.LeftArrow)) {
+				MoveUpLeft ();
+			} else {
+				MoveUp ();
+			}
 		} else if (Input.GetKey (KeyCode.DownArrow)) {			
 			running = true;
-			MoveDown();
-		} else if (Input.GetKey (KeyCode.LeftArrow)) {
+			if (Input.GetKey (KeyCode.RightArrow)) {
+				MoveDownRight ();
+			} else if (Input.GetKey (KeyCode.LeftArrow)) {
+				MoveDownLeft ();
+			} else {
+				MoveDown ();
+			}
+		} else if (Input.GetKey (KeyCode.LeftArrow)) {			
 			running = true;
 			MoveLeft ();
 		} else if (Input.GetKey (KeyCode.RightArrow)) {
@@ -40,7 +54,6 @@ public class PlayerCharacter : Person {
 		if(Input.GetKeyUp(KeyCode.Space)) {
 			dropFlyer ();
 		}
-
 		if (running) {
 			lastRunningEvent += Time.deltaTime;
 			if (lastRunningEvent > runningEventInterval) {
@@ -67,5 +80,17 @@ public class PlayerCharacter : Person {
 	}
 	protected void Stop() {
 		_rigidbody.velocity = new Vector3 (0.0f, 0.0f, 0.0f);
+	}
+	protected void MoveUpRight() {
+		_rigidbody.velocity = new Vector3 (charSpeed/1.4f, 0.0f, charSpeed/1.4f);
+	}
+	protected void MoveUpLeft() {
+		_rigidbody.velocity = new Vector3 (-charSpeed/1.4f, 0.0f, charSpeed/1.4f);
+	}
+	protected void MoveDownRight() {
+		_rigidbody.velocity = new Vector3 (charSpeed/1.4f, 0.0f, -charSpeed/1.4f);
+	}
+	protected void MoveDownLeft() {
+		_rigidbody.velocity = new Vector3 (-charSpeed/1.4f, 0.0f, -charSpeed/1.4f);
 	}
 }

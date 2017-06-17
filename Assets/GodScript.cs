@@ -18,10 +18,15 @@ public class GodScript : MonoBehaviour {
 	public List<Citizen> citizenPrefabs;
 	//public List<List<Vector2>> citizenPaths;
 
+	public GameObject[] finishObjects;
+
 	// Use this for initialization
 	void Start () {
-		
+		Time.timeScale = 1;
+		finishObjects = GameObject.FindGameObjectsWithTag ("Finish");
+		HideFinished ();
 		UpdateScore (0);
+
 		//policePaths = new List<List<Vector2>>{ };
 		//policePaths.Add(new List<Vector2>{ new Vector2 (3.0f, 3.0f) });
 		//SpawnNPCs (policePaths, policePrefabs);
@@ -36,8 +41,23 @@ public class GodScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+		if (Time.timeScale == 0 && player.alive == false) {
+			ShowFinished ();
+		}
+	}
 
+	private void ShowFinished ()
+	{
+		foreach (GameObject g in finishObjects) {
+			g.SetActive (true);
+		}
+	}
 
+	private void HideFinished ()
+	{
+		foreach (GameObject g in finishObjects) {
+			g.SetActive (false);
+		}
 	}
 
 	private void UpdateScore(int d)
