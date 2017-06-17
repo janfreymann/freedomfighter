@@ -8,16 +8,14 @@ public class GodScript : MonoBehaviour {
 
 	public DynamicText scoreText;
 
-	//public Police police;
-	//public Citizen citizen;
 	public PlayerCharacter player;
 
 	public Transform gravityFix;
 
-	public List<Person> policePrefabs;
+	public List<Police> policePrefabs;
 	//public List<List<Vector2>> policePaths;
 
-	//public List<Person> citizenPrefabs;
+	public List<Citizen> citizenPrefabs;
 	//public List<List<Vector2>> citizenPaths;
 
 	// Use this for initialization
