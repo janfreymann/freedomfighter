@@ -5,7 +5,7 @@ using UnityEngine;
 public class GodScript : MonoBehaviour {
 	public int score;
 
-	public GUIText scoreText;
+	public DynamicText scoreText;
 
 	public Police police;
 	public Citizen citizen;
@@ -35,6 +35,25 @@ public class GodScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void addToScore(int d) {
+		score += d;
+		scoreText.SetText (score.ToString ());
+
+		if (score > 70) {
+			AkSoundEngine.SetState ("RevoState", "level5");
+		}
+		else if (score > 50) {
+			AkSoundEngine.SetState ("RevoState", "level4");
+		}
+		else if (score > 20) {
+			AkSoundEngine.SetState ("RevoState", "level3");
+		}
+		else if (score > 0) {
+			AkSoundEngine.SetState ("RevoState", "level2");
+		}
+
 	}
 
 	/*void SpawnNPCs(List<List<Vector2>> paths, string npcType){

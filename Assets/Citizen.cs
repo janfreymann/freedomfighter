@@ -8,8 +8,6 @@ public class Citizen : Person {
 
 	public Sprite citizen_turned;
 	public Transform exitPosition;
-	public MusicControl mControl;
-
 	private bool turned = false;
 
 	public GodScript godScript;
@@ -33,7 +31,7 @@ public class Citizen : Person {
 			if (turned)  // near exit
 			{
 				Debug.Log ("citizen reached exit");
-				godScript.score += pointsForExit;
+				godScript.addToScore(pointsForExit);
 				//godScript.scoreText.text = godScript.score.ToString();
 				Destroy(gameObject);
 			} else
@@ -47,14 +45,13 @@ public class Citizen : Person {
 		if (!turned) {
 			turned = true;
 			Debug.Log ("citizen found flyer");
-			godScript.score += pointsForFlyer;
+			godScript.addToScore(pointsForFlyer);
 			//godScript.scoreText.text = godScript.score.ToString();
 
 			transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
 			this.tag = "Turned";
 			currentTarget = exitPosition.position;
 			agent.SetDestination (currentTarget);
-			mControl.addCitizen ();
 		}
 	}
 }
