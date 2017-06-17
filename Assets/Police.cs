@@ -15,23 +15,29 @@ public class Police : Person {
 	void Start () {
 		base.Start ();
 		followingFugitive = false;
+		selectNextTarget ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		base.Update ();
-		if (followingFugitive) {
+		if (followingFugitive) { //chasing mode
 			Debug.Log ("Following");
 			currentTarget = fugitive.transform.position;
 			if (Vector2.Distance (currentTarget, transform.position) > distanceToLose) {
 				followingFugitive = false;
+				Debug.Log ("police lost fugitive, select patrol target");
 				selectNextTarget ();
-			} else {
-				MoveToTarget ();
 			}
-		} else {
-			MoveToTarget ();
+		} else { //patrol mode
+			float distance2target = Vector3.Distance (transform.position, currentTarget);
+			if (distance2target < 1.5f) {
+				Debug.Log ("police select next target");
+				selectNextTarget ();
+			}
 		}
+
 	}
 
 	//public void OnTriggerEnter2D(Collider2D collision) {

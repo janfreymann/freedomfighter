@@ -53,11 +53,6 @@ public class Person : MonoBehaviour {
 		//transform.rotation = Quaternion.identity;
 	}
 
-	protected bool MoveToTarget() {
-		
-
-		return false; 
-	}
 	protected void selectNextTarget() {	
 		currentTarget = new Vector3(targets [targetIndx].position.x, targets [targetIndx].position.y, 0.0f);
 		targetIndx = (targetIndx + 1) % targets.Length;
