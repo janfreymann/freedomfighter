@@ -54,7 +54,7 @@ public class Person : MonoBehaviour {
 	}
 
 	protected void selectNextTarget() {	
-		currentTarget = new Vector3(targets [targetIndx].position.x, targets [targetIndx].position.y, 0.0f);
+		currentTarget = new Vector3(targets [targetIndx].position.x, targets [targetIndx].position.y, targets[targetIndx].position.z);
 		targetIndx = (targetIndx + 1) % targets.Length;
 		agent.SetDestination (currentTarget);
 	}
