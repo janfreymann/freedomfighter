@@ -9,6 +9,7 @@ public class StartGame : MonoBehaviour {
 	public Image tutScreen;
 
 	private bool skipStartScreen = false;
+	private bool started = false;
 
 	void OnLevelWasLoaded() {
 		Debug.Log ("living object count: " + livingObjects.Length);
