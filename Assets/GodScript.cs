@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GodScript : MonoBehaviour {
 	public int score = 0;
 	public const float arrestThreshold = 2.0f;
+	public const int scoreToWin = 100;
 
 	public DynamicText scoreText;
 
@@ -26,6 +27,11 @@ public class GodScript : MonoBehaviour {
 	public Button restartButton;
 	private float buttonX;
 
+	public Sprite winScreen;
+
+	private bool waitingForRestartButton;
+	private float waitingTime = 0.0f;
+
 	void OnLevelWasLoaded() {
 		Time.timeScale = 1;
 		player.alive = true;
@@ -36,6 +42,8 @@ public class GodScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		waitingForRestartButton = false;
+		waitingTime = 0.0f;
 		buttonX = restartButton.transform.position.x;
 		Time.timeScale = 1;
 		finishObjects = GameObject.FindGameObjectsWithTag ("Finish");
@@ -71,7 +79,7 @@ public class GodScript : MonoBehaviour {
 				if (c != null)
 					stillAlive = true;
 			}
-			if ((!stillAlive) && (score < 50)){
+			if ((!stillAlive) && (score < scoreToWin)){
 				Time.timeScale = 0;
 				ShowFinished ();
 			}
@@ -92,6 +100,19 @@ public class GodScript : MonoBehaviour {
 		rt.position = vecShow;
 		//restartButton.transform.position = new Vector3 (buttonX, restartButton.transform.position.y, restartButton.transform.position.z);
 	}
+	private void WinGame() {
+		foreach (GameObject g in finishObjects) {
+			Debug.Log ("set active.");
+			if (g.name == "GameOverBackground") {
+				g.GetComponent<SpriteRenderer> ().sprite = winScreen;
+			}
+			g.SetActive (true);
+		}
+		AkSoundEngine.PostEvent ("Stop_atmo_loop2", mControl.gameObject);
+		AkSoundEngine.PostEvent ("Stop_RevolutionMusic", mControl.gameObject);
+		AkSoundEngine.PostEvent ("Play_win", mControl.gameObject);
+		Time.timeScale = 0;
+	}
 
 	private void HideFinished ()
 	{
@@ -104,6 +125,10 @@ public class GodScript : MonoBehaviour {
 	{
 		score += d;
 		scoreText.SetText ("Score: " + score.ToString());
+
+		if (score >= scoreToWin) {
+			WinGame ();
+		}
 	}
 
 	public void addToScore(int d) {

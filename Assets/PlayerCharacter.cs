@@ -12,6 +12,8 @@ public class PlayerCharacter : Person {
 	float lastRunningEvent = 100.0f;
 	float runningEventInterval = 0.5f;
 
+
+
 	// Use this for initialization
 	void Start () {
 		base.Start ();
@@ -61,6 +63,17 @@ public class PlayerCharacter : Person {
 				lastRunningEvent = 0.0f;
 			}
 		}
+
+		//collider quick fix, keep in bounds!
+		float localX = transform.localPosition.x;
+		float localY = transform.localPosition.y;
+		float localZ = transform.localPosition.z;
+
+		if(transform.localPosition.x < -16.5f) transform.localPosition = new Vector3 (-16.5f, localY, localZ);
+		else if(transform.localPosition.x > 12.3f) transform.localPosition = new Vector3 (12.3f, localY, localZ);
+
+		if(transform.localPosition.y < -15.0f) transform.localPosition = new Vector3 (localX, -15.0f, localZ);
+		else if(transform.localPosition.y > 14.7f) transform.localPosition = new Vector3 (localX, 14.7f, localZ);
 	}
 	private void dropFlyer() {
 		Transform nFlyer = Instantiate (flyerPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
