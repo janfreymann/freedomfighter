@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GodScript : MonoBehaviour {
 	public int score = 0;
@@ -20,13 +21,34 @@ public class GodScript : MonoBehaviour {
 
 	public GameObject[] finishObjects;
 
+	public MusicControl mControl;
+
+	public Button restartButton;
+	private float buttonX;
+
+	void OnLevelWasLoaded() {
+		Time.timeScale = 1;
+		player.alive = true;
+		GameObject wwg = GameObject.FindGameObjectWithTag ("WwiseGlobal");
+		mControl = wwg.GetComponent<MusicControl> ();
+		Start ();
+	}
+
 	// Use this for initialization
 	void Start () {
+		buttonX = restartButton.transform.position.x;
 		Time.timeScale = 1;
 		finishObjects = GameObject.FindGameObjectsWithTag ("Finish");
+		foreach (GameObject g in finishObjects) {
+			g.SetActive (false);
+		}
 		HideFinished ();
 		UpdateScore (0);
 
+
+		RectTransform rt = restartButton.GetComponent<RectTransform> ();
+		Vector3 vec = new Vector3(10000f, rt.position.y, rt.position.z);
+		rt.position = vec;
 		//policePaths = new List<List<Vector2>>{ };
 		//policePaths.Add(new List<Vector2>{ new Vector2 (3.0f, 3.0f) });
 		//SpawnNPCs (policePaths, policePrefabs);
@@ -49,8 +71,16 @@ public class GodScript : MonoBehaviour {
 	private void ShowFinished ()
 	{
 		foreach (GameObject g in finishObjects) {
+			Debug.Log ("set active.");
 			g.SetActive (true);
 		}
+		AkSoundEngine.PostEvent ("Stop_atmo_loop2", mControl.gameObject);
+		AkSoundEngine.PostEvent ("Stop_RevolutionMusic", mControl.gameObject);
+
+		RectTransform rt = restartButton.GetComponent<RectTransform> ();
+		Vector3 vecShow = new Vector3 (buttonX, rt.position.y, rt.position.z);
+		rt.position = vecShow;
+		//restartButton.transform.position = new Vector3 (buttonX, restartButton.transform.position.y, restartButton.transform.position.z);
 	}
 
 	private void HideFinished ()
