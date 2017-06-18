@@ -22,9 +22,10 @@ public class StartGame : MonoBehaviour {
 			return;
 
 		//else:
-		foreach (GameObject go in livingObjects) {
+		/*foreach (GameObject go in livingObjects) {
 			go.SetActive (false);
-		}
+		}*/
+		Time.timeScale = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -33,9 +34,10 @@ public class StartGame : MonoBehaviour {
 	}
 
 	public void startGame() {
-		foreach (GameObject go in livingObjects) {
+		/*foreach (GameObject go in livingObjects) {
 			go.SetActive (true);
-		}
+		}*/
+		Time.timeScale = 1.0f;
 		RectTransform rt = GetComponent<RectTransform> ();
 		Vector3 away = new Vector3(10000.0f, rt.localPosition.y, rt.localPosition.z);
 		rt.position = away;
