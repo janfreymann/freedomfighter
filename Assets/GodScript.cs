@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GodScript : MonoBehaviour {
 	public int score = 0;
 	public const float arrestThreshold = 2.0f;
-	public const int scoreToWin = 100;
+	public const int scoreToWin = 50;
 
 	public DynamicText scoreText;
 
@@ -28,6 +28,7 @@ public class GodScript : MonoBehaviour {
 	private float buttonX;
 
 	public Sprite winScreen;
+	public Sprite loseScreen;
 	private IEnumerator coroutine;
 
 	private float waitingForButton;
@@ -35,36 +36,34 @@ public class GodScript : MonoBehaviour {
 
 	private bool finished;
 
+	public GameObject gameOver;
+
 	void OnLevelWasLoaded() {
-		Time.timeScale = 1;
-		player.alive = true;
-		GameObject wwg = GameObject.FindGameObjectWithTag ("WwiseGlobal");
-		mControl = wwg.GetComponent<MusicControl> ();
+		//player.alive = true;
+		Debug.Log("godscript: OnLevelWasLoaded()");
 		Start ();
 	}
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log ("godscript: Start()");
 		willShowButton = false;
 		finished = false;
 		buttonX = restartButton.transform.position.x;
 		Time.timeScale = 1;
-		finishObjects = GameObject.FindGameObjectsWithTag ("Finish");
-		foreach (GameObject g in finishObjects) {
-			g.SetActive (false);
-		}
-		HideFinished ();
+		gameOver.SetActive (false);
 		UpdateScore (0);
 
 
-		RectTransform rt = restartButton.GetComponent<RectTransform> ();
+	/*	RectTransform rt = restartButton.GetComponent<RectTransform> ();
 		Vector3 vec = new Vector3(10000f, rt.position.y, rt.position.z);
-		rt.position = vec;
+		rt.position = vec; */
+		restartButton.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//Debug.Log ("godscript: Update() " + Time.timeScale + " : " + player.alive);
 		if (Time.timeScale == 0 && player.alive == false) {
 			ShowFinished ();
 		} else {
@@ -81,11 +80,13 @@ public class GodScript : MonoBehaviour {
 
 		if (willShowButton) {
 			waitingForButton += Time.unscaledDeltaTime;
-			Debug.Log ("waitingforbutton: " + waitingForButton);
+			//Debug.Log ("waitingforbutton: " + waitingForButton);
 			if (waitingForButton > 2.0f) {
-				RectTransform rt = restartButton.GetComponent<RectTransform> ();
-				Vector3 vecShow = new Vector3 (buttonX, rt.position.y, rt.position.z);
-				rt.position = vecShow;
+				Debug.Log ("show button!");
+				//RectTransform rt = restartButton.GetComponent<RectTransform> ();
+				//Vector3 vecShow = new Vector3 (buttonX, rt.position.y, rt.position.z);
+				//rt.position = vecShow;
+				restartButton.gameObject.SetActive(true);
 				waitingForButton = 0.0f;
 				willShowButton = false;
 			}
@@ -101,11 +102,9 @@ public class GodScript : MonoBehaviour {
 	{
 		if (finished)
 			return;
-		
-		foreach (GameObject g in finishObjects) {
-			Debug.Log ("set active.");
-			g.SetActive (true);
-		}
+
+		gameOver.GetComponent<SpriteRenderer> ().sprite = loseScreen;
+		gameOver.SetActive (true);
 		AkSoundEngine.PostEvent ("Stop_atmo_loop2", mControl.gameObject);
 		AkSoundEngine.PostEvent ("Stop_RevolutionMusic", mControl.gameObject);
 		willShowButton = true;
@@ -114,25 +113,14 @@ public class GodScript : MonoBehaviour {
 		//restartButton.transform.position = new Vector3 (buttonX, restartButton.transform.position.y, restartButton.transform.position.z);
 	}
 	private void WinGame() {
-		foreach (GameObject g in finishObjects) {
-			Debug.Log ("set active.");
-			if (g.name == "GameOverBackground") {
-				g.GetComponent<SpriteRenderer> ().sprite = winScreen;
-			}
-			g.SetActive (true);
-		}
+		gameOver.GetComponent<SpriteRenderer> ().sprite = winScreen;
+		gameOver.SetActive (true);
 		AkSoundEngine.PostEvent ("Stop_atmo_loop2", mControl.gameObject);
 		AkSoundEngine.PostEvent ("Stop_RevolutionMusic", mControl.gameObject);
 		AkSoundEngine.PostEvent ("Play_win", mControl.gameObject);
 		Time.timeScale = 0;
 	}
-
-	private void HideFinished ()
-	{
-		foreach (GameObject g in finishObjects) {
-			g.SetActive (false);
-		}
-	}
+		
 
 	private void UpdateScore(int d)
 	{
