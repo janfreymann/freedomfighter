@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Police : Person {
 
-	private const float distanceToFollow = 5f;
+	private const float distanceToFollow = 7f;
 	//public PlayerCharacter player;
 	public Person fugitive;
 
-	private const float distanceToLose = 10f;
-	private const float distanceToBust = 2f;
+	private const float distanceToLose = 12f;
+	private const float distanceToBust = 2.5f;
 
 	public float distanceToFugitive = 0.0f;
 	public bool followingFugitive;

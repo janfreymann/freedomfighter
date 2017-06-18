@@ -65,6 +65,16 @@ public class GodScript : MonoBehaviour {
 		
 		if (Time.timeScale == 0 && player.alive == false) {
 			ShowFinished ();
+		} else {
+			bool stillAlive = false;
+			foreach (Citizen c in citizenPrefabs) {
+				if (c != null)
+					stillAlive = true;
+			}
+			if ((!stillAlive) && (score < 50)){
+				Time.timeScale = 0;
+				ShowFinished ();
+			}
 		}
 	}
 
