@@ -87,9 +87,13 @@ public class Police : Person {
 					Citizen cit = (Citizen) fugitive;
 					cit.bust ();
 				} else if (fugitive.tag.Equals ("Player")) {
+					fugitive.tag = "Busted";
 					AkSoundEngine.PostEvent ("Play_bust_player", gameObject);
+					PlayerCharacter pl = fugitive as PlayerCharacter;
+					pl.alive = false;
+					Time.timeScale = 0;
 					//todo animation
-					Destroy (fugitive.gameObject);
+					//Destroy (fugitive.gameObject);
 				}
 			}
 		} else { //patrol mode
