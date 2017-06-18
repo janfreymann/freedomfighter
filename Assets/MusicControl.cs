@@ -13,8 +13,6 @@ public class MusicControl : MonoBehaviour {
 		AkSoundEngine.SetState ("RevoState", "level1");
 		AkSoundEngine.PostEvent ("Play_RevolutionMusic", gameObject);
 		AkSoundEngine.PostEvent ("Play_Atmo", gameObject);
-		DontDestroyOnLoad (gameObject);
-		DontDestroyOnLoad (this);
 	}
 	
 	// Update is called once per frame

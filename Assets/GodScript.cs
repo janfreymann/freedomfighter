@@ -28,9 +28,12 @@ public class GodScript : MonoBehaviour {
 	private float buttonX;
 
 	public Sprite winScreen;
+	private IEnumerator coroutine;
 
-	private bool waitingForRestartButton;
-	private float waitingTime = 0.0f;
+	private float waitingForButton;
+	private bool willShowButton;
+
+	private bool finished;
 
 	void OnLevelWasLoaded() {
 		Time.timeScale = 1;
@@ -42,8 +45,8 @@ public class GodScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		waitingForRestartButton = false;
-		waitingTime = 0.0f;
+		willShowButton = false;
+		finished = false;
 		buttonX = restartButton.transform.position.x;
 		Time.timeScale = 1;
 		finishObjects = GameObject.FindGameObjectsWithTag ("Finish");
@@ -57,15 +60,6 @@ public class GodScript : MonoBehaviour {
 		RectTransform rt = restartButton.GetComponent<RectTransform> ();
 		Vector3 vec = new Vector3(10000f, rt.position.y, rt.position.z);
 		rt.position = vec;
-		//policePaths = new List<List<Vector2>>{ };
-		//policePaths.Add(new List<Vector2>{ new Vector2 (3.0f, 3.0f) });
-		//SpawnNPCs (policePaths, policePrefabs);
-	//	SpawnNPCs (policePaths, "p");
-
-		//citizenPaths = new List<List<Vector2>>{ };
-		//citizenPaths.Add(new List<Vector2>{ new Vector2 (12.0f, 12.0f), new Vector2(5.0f, 5.0f) });
-		//SpawnNPCs (citizenPaths, citizenPrefabs);
-	//	SpawnNPCs (citizenPaths, "c");
 	}
 	
 	// Update is called once per frame
@@ -84,20 +78,39 @@ public class GodScript : MonoBehaviour {
 				ShowFinished ();
 			}
 		}
+
+		if (willShowButton) {
+			waitingForButton += Time.unscaledDeltaTime;
+			Debug.Log ("waitingforbutton: " + waitingForButton);
+			if (waitingForButton > 2.0f) {
+				RectTransform rt = restartButton.GetComponent<RectTransform> ();
+				Vector3 vecShow = new Vector3 (buttonX, rt.position.y, rt.position.z);
+				rt.position = vecShow;
+				waitingForButton = 0.0f;
+				willShowButton = false;
+			}
+		}
+
+	}
+	private IEnumerator WaitAndShowButton(float waitTime)
+	{
+		yield return new WaitForSeconds(waitTime);
 	}
 
 	private void ShowFinished ()
 	{
+		if (finished)
+			return;
+		
 		foreach (GameObject g in finishObjects) {
 			Debug.Log ("set active.");
 			g.SetActive (true);
 		}
 		AkSoundEngine.PostEvent ("Stop_atmo_loop2", mControl.gameObject);
 		AkSoundEngine.PostEvent ("Stop_RevolutionMusic", mControl.gameObject);
-
-		RectTransform rt = restartButton.GetComponent<RectTransform> ();
-		Vector3 vecShow = new Vector3 (buttonX, rt.position.y, rt.position.z);
-		rt.position = vecShow;
+		willShowButton = true;
+		waitingForButton = 0.0f;
+		finished = true;
 		//restartButton.transform.position = new Vector3 (buttonX, restartButton.transform.position.y, restartButton.transform.position.z);
 	}
 	private void WinGame() {
