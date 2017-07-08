@@ -27,10 +27,10 @@ public class GodScript : MonoBehaviour {
 
 	private IEnumerator coroutine;
 
+	public SpawnPoint[] spawnPoints;
+
 	void OnLevelWasLoaded() {
-		//player.alive = true;
-		Debug.Log("godscript: OnLevelWasLoaded()");
-		Start ();
+
 	}
 
 	// Use this for initialization
@@ -38,6 +38,10 @@ public class GodScript : MonoBehaviour {
 		Debug.Log ("godscript: Start()");
 		Time.timeScale = 1;
 		UpdateScore (0);
+		//spawn NPCs:
+		foreach(SpawnPoint sp in spawnPoints) {
+			GetComponent<NPCFactoryScript> ().spawnNPC (sp);
+		}
 	}
 	
 	// Update is called once per frame

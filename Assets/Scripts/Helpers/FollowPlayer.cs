@@ -5,18 +5,18 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour {
 
 	public Transform player;
-	private const float cameraSpeed = 10.0f;
+	private const float cameraSpeed = 15.0f;
 
 	// Use this for initialization
 	void Start () {
-		followPlayer ();
+		followPlayer (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		followPlayer ();
+		followPlayer (true);
 	}
-	void followPlayer() {
+	void followPlayer(bool animate) {
 		Vector3 followPlayerPos = new Vector3 (player.localPosition.x, player.localPosition.y, -16.0f);
 		if (followPlayerPos.x < -5.0f) {
 			followPlayerPos.x = -5.0f;
@@ -30,8 +30,13 @@ public class FollowPlayer : MonoBehaviour {
 			followPlayerPos.y = 8.0f;
 		}
 
-		Vector3 currentPosition = transform.localPosition;
-		transform.localPosition = Vector3.MoveTowards (currentPosition, followPlayerPos, cameraSpeed * Time.deltaTime);
+		if (animate) {
+			Vector3 currentPosition = transform.localPosition;
+			transform.localPosition = Vector3.MoveTowards (currentPosition, followPlayerPos, cameraSpeed * Time.deltaTime);
+		} else { //no animation, jump to camera position
+			transform.localPosition = followPlayerPos;
+		}
+
 	}
 	public void setPlayer(Transform p) {
 		player = p;

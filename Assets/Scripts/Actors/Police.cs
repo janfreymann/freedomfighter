@@ -16,8 +16,6 @@ public class Police : Person {
 
 	private float lastWhistle = 999.0f;
 
-	public GodScript godObject;
-
 	private GameObject patrolSprite;
 	private GameObject chaseSprite;
 
@@ -38,7 +36,7 @@ public class Police : Person {
 		followingFugitive = false;
 		float distanceToClosestFugitive = 1000f;
 		Person closestFugitive = null;
-		foreach (Citizen citizen in godObject.citizenPrefabs) {
+		foreach (Citizen citizen in godScript.citizenPrefabs) {
 			if (citizen!= null && citizen.turned) {
 				float distanceToCitizen = Vector3.Distance (transform.position, citizen.transform.position);
 				Debug.Log ("Distance to citizen " + distanceToCitizen.ToString ());
@@ -50,10 +48,10 @@ public class Police : Person {
 			}
 		}
 
-		float distanceToPlayer = Vector3.Distance (transform.position, godObject.player.transform.position);
+		float distanceToPlayer = Vector3.Distance (transform.position, godScript.player.transform.position);
 		if ((distanceToPlayer < distanceToFollow) && (distanceToPlayer <= distanceToClosestFugitive)) {
 			Debug.Log ("Distance to player " + distanceToPlayer.ToString ());
-			closestFugitive = godObject.player;
+			closestFugitive = godScript.player;
 			distanceToClosestFugitive = distanceToPlayer;
 			if ((!followingFugitive) && (lastWhistle > 25.0f)) {
 				AkSoundEngine.PostEvent ("Play_WhistlePlayer", gameObject);

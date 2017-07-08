@@ -30,6 +30,8 @@ public class Person : MonoBehaviour {
 
 	protected NavMeshAgent agent;
 
+	public GodScript godScript;
+
 	//public Transform cp;
 
 	// Use this for initialization

@@ -11,7 +11,6 @@ public class Citizen : Person {
 	public bool turned = false;
 	private bool cameraFollowing = false; //true if citizen near exit to win
 
-	public GodScript godScript;
 
 	private GameObject walkingSprite;
 	private GameObject bustedSprite;
