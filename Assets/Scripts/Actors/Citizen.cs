@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Citizen : Person {
-	private const int pointsForExit = 50;
-	private const int pointsForFlyer = 10;
 
 	public Sprite citizen_turned;
 	public Transform exitPosition;
@@ -27,6 +25,7 @@ public class Citizen : Person {
 	public void bust() {
 		walkingSprite.GetComponent<SpriteRenderer> ().enabled = false;
 		bustedSprite.GetComponent<SpriteRenderer> ().enabled = true;
+		GameMaster.getInstance ().notifyTurnedCitizenDied ();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -50,7 +49,7 @@ public class Citizen : Person {
 			if (turned)  // close enough to exit to win
 			{
 				Debug.Log ("citizen reached exit");
-				godScript.addToScore(pointsForExit);
+				GameMaster.getInstance ().notifyTurnedCitizenLeft ();
 				AkSoundEngine.PostEvent("Play_score", gameObject);
 
 				Destroy(gameObject);
@@ -67,7 +66,7 @@ public class Citizen : Person {
 			if (!turned) {
 				turned = true;
 				Debug.Log ("citizen found flyer");
-				godScript.addToScore(pointsForFlyer);
+				GameMaster.getInstance ().notifiyCitizenTurned ();
 				AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
 				AkSoundEngine.PostEvent ("Play_shh", gameObject);
 

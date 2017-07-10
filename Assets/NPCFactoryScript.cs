@@ -22,6 +22,7 @@ public class NPCFactoryScript : MonoBehaviour {
 		} else if (sp.npcType == NPCType.POLICE) {
 			Police policeInstance = Instantiate (policePrefab, sp.startPosition.position, sp.startPosition.rotation) as Police;
 			policeInstance.targets = sp.waypoints;
+			policeInstance.transform.parent = gravityFix;
 			policeInstance.godScript = GetComponent<GodScript> ();
 			Debug.Log ("spawned police");
 		}

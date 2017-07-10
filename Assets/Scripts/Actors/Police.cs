@@ -36,7 +36,8 @@ public class Police : Person {
 		followingFugitive = false;
 		float distanceToClosestFugitive = 1000f;
 		Person closestFugitive = null;
-		foreach (Citizen citizen in godScript.citizenPrefabs) {
+		Citizen[] citizens = FindObjectsOfType<Citizen> (); //todo: efficient??
+		foreach (Citizen citizen in citizens) {
 			if (citizen!= null && citizen.turned) {
 				float distanceToCitizen = Vector3.Distance (transform.position, citizen.transform.position);
 				Debug.Log ("Distance to citizen " + distanceToCitizen.ToString ());
@@ -90,8 +91,8 @@ public class Police : Person {
 					PlayerCharacter pl = fugitive as PlayerCharacter;
 					pl.alive = false;
 					Time.timeScale = 0;
-					//todo animation
-					//Destroy (fugitive.gameObject);
+
+					GameMaster.getInstance ().notifyHeckerDied ();
 				}
 			}
 		} else { //patrol mode
