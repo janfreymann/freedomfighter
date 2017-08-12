@@ -25,6 +25,7 @@ public class Police : Person {
 		chaseSprite = transform.GetChild (0).gameObject;
 		patrolSprite = transform.GetChild (1).gameObject;
 		followingFugitive = false;
+		godScript.miniMap.addActor (this);
 		selectNextTarget ();
 	}
 	
@@ -40,7 +41,7 @@ public class Police : Person {
 		foreach (Citizen citizen in citizens) {
 			if (citizen!= null && citizen.turned) {
 				float distanceToCitizen = Vector3.Distance (transform.position, citizen.transform.position);
-				Debug.Log ("Distance to citizen " + distanceToCitizen.ToString ());
+			//	Debug.Log ("Distance to citizen " + distanceToCitizen.ToString ());
 				if ((distanceToCitizen < distanceToFollow) && (distanceToCitizen <= distanceToClosestFugitive)) {
 					closestFugitive = citizen;
 					distanceToClosestFugitive = distanceToCitizen;
@@ -51,7 +52,7 @@ public class Police : Person {
 
 		float distanceToPlayer = Vector3.Distance (transform.position, godScript.player.transform.position);
 		if ((distanceToPlayer < distanceToFollow) && (distanceToPlayer <= distanceToClosestFugitive)) {
-			Debug.Log ("Distance to player " + distanceToPlayer.ToString ());
+		//	Debug.Log ("Distance to player " + distanceToPlayer.ToString ());
 			closestFugitive = godScript.player;
 			distanceToClosestFugitive = distanceToPlayer;
 			if ((!followingFugitive) && (lastWhistle > 25.0f)) {
@@ -98,7 +99,6 @@ public class Police : Person {
 		} else { //patrol mode
 			patrolSprite.GetComponent<SpriteRenderer>().enabled = true;
 			chaseSprite.GetComponent<SpriteRenderer> ().enabled = false;
-			Debug.Log ("Continue patrolling");
 			float distance2target = Vector3.Distance (transform.position, currentTarget);
 			if (distance2target < 1.0f) {
 				Debug.Log ("police select next target");

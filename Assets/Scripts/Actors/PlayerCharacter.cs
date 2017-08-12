@@ -14,11 +14,16 @@ public class PlayerCharacter : Person {
 
 
 
+
+
+
 	// Use this for initialization
 	void Start () {
 		base.Start ();
 		alive = true;
 		charSpeed = 5f;
+
+		godScript.miniMap.addActor (this);
 	}
 	
 	// Update is called once per frame

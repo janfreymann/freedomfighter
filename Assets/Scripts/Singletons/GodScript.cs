@@ -21,6 +21,13 @@ public class GodScript : MonoBehaviour {
 
 	public SpawnPoint[] spawnPoints;
 
+	public MiniMapControl miniMap;
+
+	static public float boundsXmin = -16.5f;
+	static public float boundsXmax = 12.3f;
+	static public float boundsYmin = -15.0f;
+	static public float boundsYmax = 14.7f;
+
 	void OnLevelWasLoaded() {
 
 	}

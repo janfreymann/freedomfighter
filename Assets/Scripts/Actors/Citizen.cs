@@ -20,6 +20,7 @@ public class Citizen : Person {
 		walkingSprite = transform.GetChild (0).gameObject;
 		bustedSprite = transform.GetChild (1).gameObject;
 		selectNextTarget ();
+		godScript.miniMap.addActor (this);
 	}
 
 	public void bust() {
@@ -51,6 +52,7 @@ public class Citizen : Person {
 				Debug.Log ("citizen reached exit");
 				GameMaster.getInstance ().notifyTurnedCitizenLeft ();
 				AkSoundEngine.PostEvent("Play_score", gameObject);
+				godScript.miniMap.removeActor (this);
 
 				Destroy(gameObject);
 			} else
@@ -69,6 +71,9 @@ public class Citizen : Person {
 				GameMaster.getInstance ().notifiyCitizenTurned ();
 				AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
 				AkSoundEngine.PostEvent ("Play_shh", gameObject);
+
+				godScript.miniMap.removeActor (this); //quickly remove and add to change icon
+				godScript.miniMap.addActor (this); //new actor will be loaded with citizen turned icon on mini map
 
 				transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
 				this.tag = "Turned";
