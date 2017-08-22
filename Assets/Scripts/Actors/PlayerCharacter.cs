@@ -12,11 +12,6 @@ public class PlayerCharacter : Person {
 	float lastRunningEvent = 100.0f;
 	float runningEventInterval = 0.5f;
 
-
-
-
-
-
 	// Use this for initialization
 	void Start () {
 		base.Start ();

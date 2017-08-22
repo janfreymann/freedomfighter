@@ -32,6 +32,8 @@ public class Person : MonoBehaviour {
 
 	public GodScript godScript;
 
+	public int uuid;
+
 	//public Transform cp;
 
 	// Use this for initialization
@@ -53,4 +55,10 @@ public class Person : MonoBehaviour {
 		agent.SetDestination (currentTarget);
 	}
 		
+	public void SetUuid(int id) {
+		uuid = id;
+	}
+	public int GetUuid() {
+		return uuid;
+	}
 }

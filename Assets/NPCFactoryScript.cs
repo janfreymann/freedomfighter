@@ -10,9 +10,10 @@ public class NPCFactoryScript : MonoBehaviour {
 	public Transform gravityFix;
 	public Transform exitPosition;
 
-	public void spawnNPC(SpawnPoint sp) {
+	public void spawnNPC(SpawnPoint sp, int uuidCount) {
 		if (sp.npcType == NPCType.CITIZEN) {			
 			Citizen citizenInstance = Instantiate (citizenPrefab, sp.startPosition.position, sp.startPosition.rotation) as Citizen;
+			citizenInstance.SetUuid (uuidCount);
 			citizenInstance.targets = sp.waypoints;
 			citizenInstance.transform.parent = gravityFix;
 			citizenInstance.godScript = GetComponent<GodScript> ();
@@ -21,6 +22,7 @@ public class NPCFactoryScript : MonoBehaviour {
 			Debug.Log ("spawned citizen");
 		} else if (sp.npcType == NPCType.POLICE) {
 			Police policeInstance = Instantiate (policePrefab, sp.startPosition.position, sp.startPosition.rotation) as Police;
+			policeInstance.SetUuid (uuidCount);
 			policeInstance.targets = sp.waypoints;
 			policeInstance.transform.parent = gravityFix;
 			policeInstance.godScript = GetComponent<GodScript> ();

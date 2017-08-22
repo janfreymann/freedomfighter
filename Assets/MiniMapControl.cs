@@ -57,13 +57,20 @@ public class MiniMapControl : MonoBehaviour {
 
 	}
 	public void removeActor(Person actorToRemove) {
-		foreach (MiniMapActor miniMapActor in actors) {
-			if (actorToRemove.Equals(miniMapActor)) { //TODO: does not work!
-				Debug.Log ("removed actor!");
-				actors.Remove (miniMapActor);
-				break;
+		Debug.Log ("removeActor() " + actors.Count);
+		List<MiniMapActor> tmp = new List<MiniMapActor> ();
+
+		foreach (MiniMapActor miniMapActor in actors) {			
+			if (actorToRemove.GetUuid () != miniMapActor.GetUuid ()) {
+				tmp.Add (miniMapActor);
+			} else {
+				Destroy (miniMapActor.image);
 			}
+
 		}
+
+		actors.Clear();
+		actors.AddRange (tmp);
 	}
 	private Vector2 convertPosition(Vector3 worldPos) { //convert world coordinates to anchored mini map coordinates
 		float normX = (worldPos.x - GodScript.boundsXmin) / (GodScript.boundsXmax-GodScript.boundsXmin);
@@ -79,4 +86,12 @@ public class MiniMapActor {
 		actor = _actor;
 		image = _image;
 	}
+	public int GetUuid() {
+		if (actor != null) {
+			return actor.GetUuid ();
+		} else {
+			return -1; //unknown...
+		}
+	}
+		
 }

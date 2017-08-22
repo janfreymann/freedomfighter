@@ -28,6 +28,8 @@ public class GodScript : MonoBehaviour {
 	static public float boundsYmin = -15.0f;
 	static public float boundsYmax = 14.7f;
 
+	public int uuidCount = 0;
+
 	void OnLevelWasLoaded() {
 
 	}
@@ -36,10 +38,13 @@ public class GodScript : MonoBehaviour {
 	void Start () {
 		Debug.Log ("godscript: Start()");
 		Time.timeScale = 1;
+		uuidCount = 0;
 		//spawn NPCs:
 		foreach(SpawnPoint sp in spawnPoints) {
-			GetComponent<NPCFactoryScript> ().spawnNPC (sp);
+			GetComponent<NPCFactoryScript> ().spawnNPC (sp, uuidCount);
+			uuidCount++;
 		}
+
 		GameMaster gm = GameMaster.getInstance ();
 		gm.registerGodScript (this);
 		gm.notifyLevelStarted ();
@@ -68,7 +73,8 @@ public class GodScript : MonoBehaviour {
 		while (spawnPoints [k].npcType != NPCType.CITIZEN) { //assume at leat one citizen in spawn points, otherwise inifinite loop - todo: fix!
 			k = (k + 1) % spawnPoints.Length;
 		}
-		GetComponent<NPCFactoryScript> ().spawnNPC (spawnPoints [k]);
+		GetComponent<NPCFactoryScript> ().spawnNPC (spawnPoints [k], uuidCount);
+		uuidCount++;
 
 	}
 

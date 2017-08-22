@@ -85,6 +85,7 @@ public class Police : Person {
 					AkSoundEngine.PostEvent ("Play_BustCititzen", gameObject);
 					Destroy (fugitive.gameObject, 2.0f);
 					Citizen cit = (Citizen) fugitive;
+					godScript.miniMap.removeActor (cit);
 					cit.bust ();
 				} else if (fugitive.tag.Equals ("Player")) {
 					fugitive.tag = "Busted";
