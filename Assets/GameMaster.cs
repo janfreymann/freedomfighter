@@ -14,6 +14,7 @@ public class GameMaster {
 	//triggers game over / game win
 
 	private GodScript godScript; //current god script running in level
+	private FlyerAmmoManager flyerAmmoManager;
 	private int currentScore;
 
 	private static GameMaster gmInstance;
@@ -21,6 +22,14 @@ public class GameMaster {
 
 	public void registerGodScript(GodScript gs) {
 		godScript = gs;
+	}
+	public void registerFlyerAmmoManager(FlyerAmmoManager fam) {
+		flyerAmmoManager = fam;
+	}
+	public bool CheckAndDropFlyer() {
+		bool result = flyerAmmoManager.checkAndDropFlyer ();
+		Debug.Log ("checkAndDropFlyer(): " + result);
+		return result;
 	}
 
 	public void notifyLevelStarted() {

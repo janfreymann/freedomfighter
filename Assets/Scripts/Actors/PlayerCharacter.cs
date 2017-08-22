@@ -76,8 +76,12 @@ public class PlayerCharacter : Person {
 		else if(transform.localPosition.y > 14.7f) transform.localPosition = new Vector3 (localX, 14.7f, localZ);
 	}
 	private void dropFlyer() {
-		Transform nFlyer = Instantiate (flyerPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-		AkSoundEngine.PostEvent ("Play_FlyerDrop", gameObject);
+		Debug.Log ("dropFlyer()");
+		GameMaster gm = GameMaster.getInstance ();
+		if (gm.CheckAndDropFlyer ()) {
+			Transform nFlyer = Instantiate (flyerPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			AkSoundEngine.PostEvent ("Play_FlyerDrop", gameObject);
+		}
 	}
 	protected void MoveLeft() {
 		_rigidbody.velocity = new Vector3 (-charSpeed, 0.0f,  0.0f);

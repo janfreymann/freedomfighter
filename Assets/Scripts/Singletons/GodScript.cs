@@ -22,6 +22,7 @@ public class GodScript : MonoBehaviour {
 	public SpawnPoint[] spawnPoints;
 
 	public MiniMapControl miniMap;
+	public FlyerAmmoManager flyerAmmo;
 
 	static public float boundsXmin = -16.5f;
 	static public float boundsXmax = 12.3f;
@@ -48,6 +49,7 @@ public class GodScript : MonoBehaviour {
 		GameMaster gm = GameMaster.getInstance ();
 		gm.registerGodScript (this);
 		gm.notifyLevelStarted ();
+		flyerAmmo.AddAmmo (4);
 	}
 	
 	// Update is called once per frame
