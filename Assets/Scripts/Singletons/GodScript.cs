@@ -49,7 +49,7 @@ public class GodScript : MonoBehaviour {
 		GameMaster gm = GameMaster.getInstance ();
 		gm.registerGodScript (this);
 		gm.notifyLevelStarted ();
-		flyerAmmo.AddAmmo (4);
+		flyerAmmo.AddAmmo (6);
 	}
 	
 	// Update is called once per frame

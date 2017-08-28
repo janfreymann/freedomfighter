@@ -37,7 +37,7 @@ public class FlyerAmmoManager : MonoBehaviour {
 			Image ammo = Instantiate (ammoPrefab);
 			ammo.rectTransform.parent = GetComponent<RectTransform> ();
 
-			ammo.rectTransform.anchoredPosition = new Vector2 (30 + ((count-ammoItems.Count) * 30), 25);
+			ammo.rectTransform.anchoredPosition = new Vector2 (((count-ammoItems.Count) * 30), 25);
 			ammo.rectTransform.sizeDelta = new Vector2 (70, 70);
 			ammoItems.Enqueue (ammo);
 		}
