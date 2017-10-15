@@ -15,8 +15,8 @@ public class Citizen : Person {
 
 	private float timeSinceLastPlayerCollision = 100.0f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    new void Start () {
 		base.Start ();
 		charSpeed = 1.5f;
 		walkingSprite = transform.GetChild (0).gameObject;
@@ -31,7 +31,7 @@ public class Citizen : Person {
 		GameMaster.getInstance ().notifyTurnedCitizenDied ();
 	}
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		base.Update ();
 		timeSinceLastPlayerCollision += Time.deltaTime;
 

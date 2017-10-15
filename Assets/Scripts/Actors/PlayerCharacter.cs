@@ -13,7 +13,7 @@ public class PlayerCharacter : Person {
 	float runningEventInterval = 0.5f;
 
 	// Use this for initialization
-	void Start () {
+	new void Start () {
 		base.Start ();
 		alive = true;
 		charSpeed = 5f; 
@@ -23,7 +23,7 @@ public class PlayerCharacter : Person {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		base.Update ();
 	
 		if (Input.GetKey (KeyCode.UpArrow)) {	

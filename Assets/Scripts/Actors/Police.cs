@@ -21,7 +21,7 @@ public class Police : Person {
 	private GameObject chaseSprite;
 
 	// Use this for initialization
-	void Start () {
+	new void Start () {
 		base.Start ();
 		chaseSprite = transform.GetChild (0).gameObject;
 		patrolSprite = transform.GetChild (1).gameObject;
@@ -31,7 +31,7 @@ public class Police : Person {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		base.Update ();
 		lastWhistle += Time.deltaTime;
 
