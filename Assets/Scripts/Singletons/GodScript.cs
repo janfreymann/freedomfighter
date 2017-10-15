@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GodScript : MonoBehaviour {
+
+    public const float timeScale = 1;
+    
 	public const float arrestThreshold = 2.0f;
 
 	public DynamicText scoreText;
@@ -22,7 +25,10 @@ public class GodScript : MonoBehaviour {
 	public SpawnPoint[] spawnPoints;
 
 	public MiniMapControl miniMap;
+
 	public FlyerAmmoManager flyerAmmo;
+
+    //public GameObject pauseOverlay;
 
 	static public float boundsXmin = -16.5f;
 	static public float boundsXmax = 12.3f;
@@ -38,7 +44,7 @@ public class GodScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("godscript: Start()");
-		Time.timeScale = 1;
+		Time.timeScale = timeScale;
 		uuidCount = 0;
 		//spawn NPCs:
 		foreach(SpawnPoint sp in spawnPoints) {
@@ -50,12 +56,34 @@ public class GodScript : MonoBehaviour {
 		gm.registerGodScript (this);
 		gm.notifyLevelStarted ();
 		flyerAmmo.AddAmmo (6);
+
+        //pauseOverlay.gameObject.setActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (Time.timeScale > 0)
+            {
+                Time.timeScale = 0;               
+            }
+            else
+            {
+                Time.timeScale = timeScale;
+            }
 
-	}
+            //toggle visibility of overlay
+
+            //pauseOverlay.gameObject.setActive(!pauseOverlay.gameObject.isActive());
+
+            //var renderers = pauseOverlay.GetComponentsInChildren(typeof(Button));
+            //foreach (Renderer r in renderers)
+            //{
+            //    r.enabled = !r.enabled;
+            //}
+        }
+    }
 
 	public void LoseGame ()
 	{
@@ -72,17 +100,24 @@ public class GodScript : MonoBehaviour {
 	}
 	public void respawnRandomCitizen() {
 		int k = Random.Range (0, spawnPoints.Length-1);
-		while (spawnPoints [k].npcType != NPCType.CITIZEN) { //assume at leat one citizen in spawn points, otherwise inifinite loop - todo: fix!
+		while (spawnPoints [k].npcType != NPCType.CITIZEN) { //assume at least one citizen in spawn points, otherwise inifinite loop - todo: fix!
 			k = (k + 1) % spawnPoints.Length;
 		}
 		GetComponent<NPCFactoryScript> ().spawnNPC (spawnPoints [k], uuidCount);
 		uuidCount++;
-
 	}
 
 	public void updateScoreLabel(int sc) {
 		scoreText.SetText ("Score: " + sc.ToString ());
 	}
 
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene("CityScene"); // TODO: Read what level is current and load that
+    }
 
+    public void EndGame()
+    {
+        SceneManager.LoadScene("StartMenuScene");
+    }
 }
