@@ -8,7 +8,7 @@ public class Police : Person {
 	//public PlayerCharacter player;
 	public Person fugitive = null;
 
-	private const float distanceToLose = 10f;
+	private const float distanceToLose = 8f;
 	private const float distanceToBust = 2.5f;
 
 	public float distanceToFugitive = 0.0f;
@@ -37,6 +37,11 @@ public class Police : Person {
 		float distanceToClosestFugitive = 1000f;
 		Person closestFugitive = null;
 		Citizen[] citizens = FindObjectsOfType<Citizen> (); //todo: efficient??
+
+        if (followingFugitive && fugitive == null) // followed citizen escaped
+        {
+            followingFugitive = false;
+        }
 
         if (!chasingHecker) // only look for citizens when not chasing player
         {
@@ -87,6 +92,7 @@ public class Police : Person {
 
 			if (distanceToFugitive > distanceToLose) {
 				followingFugitive = false;
+                fugitive = null;
 				Debug.Log ("police lost fugitive, select patrol target");
 				selectNextTarget ();
 			} else if (distanceToFugitive < distanceToBust) {
@@ -99,6 +105,7 @@ public class Police : Person {
 					godScript.miniMap.removeActor (cit);
 					cit.bust ();
                     followingFugitive = false;
+                    fugitive = null;
 				} else if (fugitive.tag.Equals ("Player")) {
 					fugitive.tag = "Busted";
 					AkSoundEngine.PostEvent ("Play_bust_player", gameObject);
@@ -106,6 +113,7 @@ public class Police : Person {
 					pl.alive = false;
 					Time.timeScale = 0;
                     followingFugitive = false;
+                    fugitive = null;
                     GameMaster.getInstance ().notifyHeckerDied ();
 				}
 			}
