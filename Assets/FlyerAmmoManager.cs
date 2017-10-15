@@ -19,7 +19,7 @@ public class FlyerAmmoManager : MonoBehaviour {
 		
 	}
 	public bool checkAndDropFlyer() {
-		if (ammoItems.Count > 0) {
+		if ((ammoItems.Count > 0) && (Time.timeScale > 0)) {
 			//remove right most ammo item
 			Image img = ammoItems.Dequeue();
 			Destroy (img);

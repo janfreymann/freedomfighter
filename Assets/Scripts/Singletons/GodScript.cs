@@ -28,7 +28,7 @@ public class GodScript : MonoBehaviour {
 
 	public FlyerAmmoManager flyerAmmo;
 
-    //public GameObject pauseOverlay;
+    public GameObject pauseOverlay;
 
 	static public float boundsXmin = -16.5f;
 	static public float boundsXmax = 12.3f;
@@ -57,8 +57,9 @@ public class GodScript : MonoBehaviour {
 		gm.notifyLevelStarted ();
 		flyerAmmo.AddAmmo (6);
 
-        //pauseOverlay.gameObject.setActive(false);
-	}
+        pauseOverlay.gameObject.SetActive(false);
+        //ToggleImageVisibility(pauseOverlay);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -66,22 +67,27 @@ public class GodScript : MonoBehaviour {
         {
             if (Time.timeScale > 0)
             {
-                Time.timeScale = 0;               
+                Time.timeScale = 0;
+                pauseOverlay.SetActive(true);
             }
             else
             {
                 Time.timeScale = timeScale;
+                pauseOverlay.gameObject.SetActive(false);
             }
 
-            //toggle visibility of overlay
+            //ToggleImageVisibility(pauseOverlay);            
+        }
+    }
 
-            //pauseOverlay.gameObject.setActive(!pauseOverlay.gameObject.isActive());
+    private void ToggleImageVisibility(GameObject gameObj)
+    {
+        gameObj.SetActive(false); 
 
-            //var renderers = pauseOverlay.GetComponentsInChildren(typeof(Button));
-            //foreach (Renderer r in renderers)
-            //{
-            //    r.enabled = !r.enabled;
-            //}
+        var images = gameObj.GetComponentsInChildren(typeof(Image));
+        foreach (Image i in images)
+        {
+            i.enabled = !i.enabled;
         }
     }
 
