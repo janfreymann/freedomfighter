@@ -20,8 +20,6 @@ public class GodScript : MonoBehaviour {
 
 	public MusicControl mControl;
 
-	private IEnumerator coroutine;
-
 	public SpawnPoint[] spawnPoints;
 
 	public MiniMapControl miniMap;
@@ -58,7 +56,6 @@ public class GodScript : MonoBehaviour {
 		flyerAmmo.AddAmmo (6);
 
         pauseOverlay.gameObject.SetActive(false);
-        //ToggleImageVisibility(pauseOverlay);
     }
 	
 	// Update is called once per frame
@@ -68,26 +65,13 @@ public class GodScript : MonoBehaviour {
             if (Time.timeScale > 0)
             {
                 Time.timeScale = 0;
-                pauseOverlay.SetActive(true);
+                pauseOverlay.gameObject.SetActive(true);
             }
             else
             {
                 Time.timeScale = timeScale;
                 pauseOverlay.gameObject.SetActive(false);
-            }
-
-            //ToggleImageVisibility(pauseOverlay);            
-        }
-    }
-
-    private void ToggleImageVisibility(GameObject gameObj)
-    {
-        gameObj.SetActive(false); 
-
-        var images = gameObj.GetComponentsInChildren(typeof(Image));
-        foreach (Image i in images)
-        {
-            i.enabled = !i.enabled;
+            }           
         }
     }
 
@@ -119,7 +103,7 @@ public class GodScript : MonoBehaviour {
 
     public void ResetLevel()
     {
-        SceneManager.LoadScene("CityScene"); // TODO: Read what level is current and load that
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void EndGame()
