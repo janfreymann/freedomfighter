@@ -6,13 +6,13 @@ public class Police : Person {
 
 	private const float distanceToFollow = 7f;
 	//public PlayerCharacter player;
-	public Person fugitive;
+	public Person fugitive = null;
 
-	private const float distanceToLose = 100f;
+	private const float distanceToLose = 10f;
 	private const float distanceToBust = 2.5f;
 
 	public float distanceToFugitive = 0.0f;
-	public bool followingFugitive;
+	public bool followingFugitive = false;
 	private bool chasingHecker = false;
 
 	private float lastWhistle = 999.0f;
@@ -25,7 +25,6 @@ public class Police : Person {
 		base.Start ();
 		chaseSprite = transform.GetChild (0).gameObject;
 		patrolSprite = transform.GetChild (1).gameObject;
-		followingFugitive = false;
 		godScript.miniMap.addActor (this);
 		selectNextTarget ();
 	}
@@ -35,25 +34,30 @@ public class Police : Person {
 		base.Update ();
 		lastWhistle += Time.deltaTime;
 
-		followingFugitive = false;
 		float distanceToClosestFugitive = 1000f;
 		Person closestFugitive = null;
 		Citizen[] citizens = FindObjectsOfType<Citizen> (); //todo: efficient??
-		foreach (Citizen citizen in citizens) {
-			if (citizen!= null && citizen.turned) {
-				float distanceToCitizen = Vector3.Distance (transform.position, citizen.transform.position);
-			//	Debug.Log ("Distance to citizen " + distanceToCitizen.ToString ());
-				if ((distanceToCitizen < distanceToFollow) && (distanceToCitizen <= distanceToClosestFugitive)) {
-					closestFugitive = citizen;
-					distanceToClosestFugitive = distanceToCitizen;
-					followingFugitive = true;
-				}	
-			}
-		}
+
+        if (!chasingHecker) // only look for citizens when not chasing player
+        {
+            foreach (Citizen citizen in citizens)
+            {
+                if (citizen != null && citizen.turned)
+                {
+                    float distanceToCitizen = Vector3.Distance(transform.position, citizen.transform.position);
+                    //	Debug.Log ("Distance to citizen " + distanceToCitizen.ToString ());
+                    if ((distanceToCitizen < distanceToFollow) && (distanceToCitizen <= distanceToClosestFugitive))
+                    {
+                        closestFugitive = citizen;
+                        distanceToClosestFugitive = distanceToCitizen;
+                    }
+                }
+            }
+        }
 
 		float distanceToPlayer = Vector3.Distance (transform.position, godScript.player.transform.position);
 
-		if ((distanceToPlayer < distanceToFollow) && (distanceToPlayer <= distanceToClosestFugitive)) {
+		if (distanceToPlayer < distanceToFollow) {
 		//	Debug.Log ("Distance to player " + distanceToPlayer.ToString ());
 			closestFugitive = godScript.player;
 			if (!chasingHecker) {
@@ -65,11 +69,13 @@ public class Police : Person {
 				AkSoundEngine.PostEvent ("Play_WhistlePlayer", gameObject);
 				lastWhistle = 0.0f;
 			}
-				
-			followingFugitive = true;
 		}
-
-		fugitive = closestFugitive;
+        
+        if (closestFugitive != null)
+        {
+            fugitive = closestFugitive; // only override when another one found
+            followingFugitive = true;
+        }
 
 		if (followingFugitive) { //chasing mode
 			patrolSprite.GetComponent<SpriteRenderer>().enabled = false;
@@ -77,12 +83,13 @@ public class Police : Person {
 			//Debug.Log ("closest: " + fugitive.tag);
 			currentTarget = fugitive.transform.position;
 			agent.SetDestination (currentTarget);
-			distanceToFugitive = Vector2.Distance (currentTarget, transform.position);
-			if (Vector3.Distance (currentTarget, transform.position) > distanceToLose) {
+			distanceToFugitive = Vector3.Distance (currentTarget, transform.position);
+
+			if (distanceToFugitive > distanceToLose) {
 				followingFugitive = false;
 				Debug.Log ("police lost fugitive, select patrol target");
 				selectNextTarget ();
-			} else if (Vector3.Distance (currentTarget, transform.position) < distanceToBust) {
+			} else if (distanceToFugitive < distanceToBust) {
 				//Debug.Log ("busted! " + fugitive.tag + " distance " + );
 				if (fugitive.tag.Equals ("Turned")) {
 					fugitive.tag = "Busted"; //prevent multiple busts
@@ -91,14 +98,15 @@ public class Police : Person {
 					Citizen cit = (Citizen) fugitive;
 					godScript.miniMap.removeActor (cit);
 					cit.bust ();
+                    followingFugitive = false;
 				} else if (fugitive.tag.Equals ("Player")) {
 					fugitive.tag = "Busted";
 					AkSoundEngine.PostEvent ("Play_bust_player", gameObject);
 					PlayerCharacter pl = fugitive as PlayerCharacter;
 					pl.alive = false;
 					Time.timeScale = 0;
-
-					GameMaster.getInstance ().notifyHeckerDied ();
+                    followingFugitive = false;
+                    GameMaster.getInstance ().notifyHeckerDied ();
 				}
 			}
 		} else { //patrol mode
