@@ -13,6 +13,8 @@ public class Citizen : Person {
 	private GameObject walkingSprite;
 	private GameObject bustedSprite;
 
+	private float timeSinceLastPlayerCollision = 100.0f;
+
 	// Use this for initialization
 	void Start () {
 		base.Start ();
@@ -31,6 +33,7 @@ public class Citizen : Person {
 	// Update is called once per frame
 	void Update () {
 		base.Update ();
+		timeSinceLastPlayerCollision += Time.deltaTime;
 
 		if (tag.Equals ("Busted")) {
 			agent.isStopped = true;
@@ -82,6 +85,34 @@ public class Citizen : Person {
 
 				Destroy (collision.gameObject);
 			}		
+		}
+	}
+	/*public void handlePlayerCollision(Collision collision) {
+		Debug.Log ("handlePlayerCollision()");
+		stopBecausePlayer = true;
+		// Calculate Angle Between the collision point and the player
+		Vector3 dir = collision.contacts[0].point - transform.position;
+		// We then get the opposite (-Vector3) and normalize it
+		dir = -dir.normalized;
+		// And finally we add force in the direction of dir and multiply it by force. 
+		// This will push back the player
+		GetComponent<Rigidbody>().velocity = dir*10f;
+		agent.isStopped = true;
+	}*/
+	public void OnCollisionStay(Collision collision) {
+		if (collision.gameObject.tag.Equals ("Player")) {
+			timeSinceLastPlayerCollision = 0.0f;
+		}
+	}
+	public void OnCollisionEnter(Collision collision) {
+		if(collision.gameObject.tag.Equals("Player")) {
+			if(timeSinceLastPlayerCollision > 1.0f) {
+				if (tag.Equals ("Citizen")) { //not for busted or turned citizens
+					Debug.Log("collision with player - select previous target");
+					selectPreviousTarget ();
+				}
+			}
+			timeSinceLastPlayerCollision = 0.0f;
 		}
 	}
 }

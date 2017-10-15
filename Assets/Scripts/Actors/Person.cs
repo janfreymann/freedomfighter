@@ -54,6 +54,14 @@ public class Person : MonoBehaviour {
 		targetIndx = (targetIndx + 1) % targets.Length;
 		agent.SetDestination (currentTarget);
 	}
+	protected void selectPreviousTarget() {
+		currentTarget = new Vector3(targets [targetIndx].position.x, targets [targetIndx].position.y, targets[targetIndx].position.z);
+		targetIndx = (targetIndx - 1) % targets.Length;
+		if (targetIndx < 0) {
+			targetIndx = targets.Length - 1;
+		}
+		agent.SetDestination (currentTarget);
+	}
 		
 	public void SetUuid(int id) {
 		uuid = id;

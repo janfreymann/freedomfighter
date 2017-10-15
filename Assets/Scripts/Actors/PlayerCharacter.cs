@@ -16,7 +16,8 @@ public class PlayerCharacter : Person {
 	void Start () {
 		base.Start ();
 		alive = true;
-		charSpeed = 5f;
+		charSpeed = 15f; //todo: change back to 5f
+
 
 		godScript.miniMap.addActor (this);
 	}
