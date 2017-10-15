@@ -10,7 +10,9 @@ public class MusicControl : MonoBehaviour {
 	}
 	void Start () {
 		Debug.Log("start() music control");
-		AkSoundEngine.SetState ("RevoState", "level1");
+		//AkSoundEngine.SetState ("RevoState", "level1");
+		AkSoundEngine.SetState("CitizenState", "normal");
+		AkSoundEngine.SetState ("PlayerState", "normal");
 		AkSoundEngine.PostEvent ("Play_RevolutionMusic", gameObject);
 		AkSoundEngine.PostEvent ("Play_Atmo", gameObject);
 	}

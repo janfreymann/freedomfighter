@@ -19,6 +19,9 @@ public class GameMaster {
 
 	private static GameMaster gmInstance;
 
+	private int heckerChaseCount = 0;
+	private int turnedCitizenCount = 0;
+
 
 	public void registerGodScript(GodScript gs) {
 		godScript = gs;
@@ -39,18 +42,49 @@ public class GameMaster {
 	public void notifyTurnedCitizenLeft() {
 		currentScore += pointsForExit;
 		updateScoreRoutine ();
+		turnedCitizenCount--;
+		updateCitizenTurnedState ();
 	}
 
 	public void notifyTurnedCitizenDied() {
 		godScript.respawnRandomCitizen ();
+		turnedCitizenCount--;
+		updateCitizenTurnedState ();
 	}
 	public void notifyCitizenTurned() {
 		currentScore += pointsForFlyer;
 		updateScoreRoutine ();
+		turnedCitizenCount++;
+		updateCitizenTurnedState ();
 	}
 
 	public void notifyHeckerDied() {
 		godScript.LoseGame ();
+	}
+	public void notifyHeckerChased() {
+		heckerChaseCount++;
+		updateHeckerChaseState ();
+	}
+	public void notifyHeckerChaseStopped() {
+		heckerChaseCount--;
+		updateHeckerChaseState ();
+	}
+	private void updateCitizenTurnedState() { //for game music
+		if (turnedCitizenCount <= 0) {
+			turnedCitizenCount = 0;
+			AkSoundEngine.SetState ("CitizenState", "Normal");
+		} else {
+			AkSoundEngine.SetState ("CitizenState", "Turned");
+		}
+	}
+	private void updateHeckerChaseState() { //for game music
+		if (heckerChaseCount <= 0) {
+			heckerChaseCount = 0;
+			AkSoundEngine.SetState ("PlayerState", "Normal");
+		} else {
+			Debug.Log ("chasing player MUSIC");
+			AkSoundEngine.SetState ("PlayerState", "Chased");
+		}
 	}
 
 	public static GameMaster getInstance() { //singleton
@@ -71,7 +105,7 @@ public class GameMaster {
 	}
 
 	private void updateMusic(int score) {
-		if (score > 70) {
+	/*	if (score > 70) {
 			AkSoundEngine.SetState ("RevoState", "level5");
 		}
 		else if (score > 50) {
@@ -82,7 +116,7 @@ public class GameMaster {
 		}
 		else if (score > 0) {
 			AkSoundEngine.SetState ("RevoState", "level2");
-		}
+		}*/
 	}
 
 }

@@ -13,6 +13,7 @@ public class Police : Person {
 
 	public float distanceToFugitive = 0.0f;
 	public bool followingFugitive;
+	private bool chasingHecker = false;
 
 	private float lastWhistle = 999.0f;
 
@@ -54,6 +55,10 @@ public class Police : Person {
 		if ((distanceToPlayer < distanceToFollow) && (distanceToPlayer <= distanceToClosestFugitive)) {
 		//	Debug.Log ("Distance to player " + distanceToPlayer.ToString ());
 			closestFugitive = godScript.player;
+			if (!chasingHecker) {
+				GameMaster.getInstance ().notifyHeckerChased ();
+				chasingHecker = true;
+			}
 			distanceToClosestFugitive = distanceToPlayer;
 			if ((!followingFugitive) && (lastWhistle > 25.0f)) {
 				AkSoundEngine.PostEvent ("Play_WhistlePlayer", gameObject);
@@ -70,7 +75,7 @@ public class Police : Person {
 		if (followingFugitive) { //chasing mode
 			patrolSprite.GetComponent<SpriteRenderer>().enabled = false;
 			chaseSprite.GetComponent<SpriteRenderer> ().enabled = true;
-			Debug.Log ("closest: " + fugitive.tag);
+			//Debug.Log ("closest: " + fugitive.tag);
 			currentTarget = fugitive.transform.position;
 			agent.SetDestination (currentTarget);
 			distanceToFugitive = Vector2.Distance (currentTarget, transform.position);
@@ -98,6 +103,10 @@ public class Police : Person {
 				}
 			}
 		} else { //patrol mode
+			if (chasingHecker) {
+				GameMaster.getInstance ().notifyHeckerChaseStopped ();
+				chasingHecker = false;
+			}
 			patrolSprite.GetComponent<SpriteRenderer>().enabled = true;
 			chaseSprite.GetComponent<SpriteRenderer> ().enabled = false;
 			float distance2target = Vector3.Distance (transform.position, currentTarget);
