@@ -70,16 +70,19 @@ public class Citizen : Person {
 		{
 			if (!turned) {
 				turned = true;
-				Debug.Log ("citizen found flyer");
-				GameMaster.getInstance ().notifiyCitizenTurned ();
+
+                Debug.Log("citizen found flyer");
+
+                this.tag = "Turned";
+                transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
+                
+				GameMaster.getInstance ().notifyCitizenTurned();
 				AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
 				AkSoundEngine.PostEvent ("Play_shh", gameObject);
 
 				godScript.miniMap.removeActor (this); //quickly remove and add to change icon
-				godScript.miniMap.addActor (this); //new actor will be loaded with citizen turned icon on mini map
-
-				transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
-				this.tag = "Turned";
+                godScript.miniMap.addActor (this); //new actor will be loaded with citizen turned icon on mini map
+			
 				currentTarget = exitPosition.position;
 				agent.SetDestination (currentTarget);
 

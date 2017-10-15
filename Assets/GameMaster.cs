@@ -44,7 +44,7 @@ public class GameMaster {
 	public void notifyTurnedCitizenDied() {
 		godScript.respawnRandomCitizen ();
 	}
-	public void notifiyCitizenTurned() {
+	public void notifyCitizenTurned() {
 		currentScore += pointsForFlyer;
 		updateScoreRoutine ();
 	}
