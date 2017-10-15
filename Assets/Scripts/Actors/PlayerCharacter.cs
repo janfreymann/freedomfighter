@@ -17,9 +17,8 @@ public class PlayerCharacter : Person {
 		base.Start ();
 		alive = true;
 		charSpeed = 5f; 
-
-
 		godScript.miniMap.addActor (this);
+		this.uuid = 99999;
 	}
 	
 	// Update is called once per frame

@@ -82,7 +82,7 @@ public class GameMaster {
 			heckerChaseCount = 0;
 			AkSoundEngine.SetState ("PlayerState", "Normal");
 		} else {
-			Debug.Log ("chasing player MUSIC");
+		//	Debug.Log ("chasing player MUSIC");
 			AkSoundEngine.SetState ("PlayerState", "Chased");
 		}
 	}

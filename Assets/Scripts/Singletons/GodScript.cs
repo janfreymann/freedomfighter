@@ -10,7 +10,7 @@ public class GodScript : MonoBehaviour {
     
 	public const float arrestThreshold = 2.0f;
 
-	public DynamicText scoreText;
+	public Text scoreText;
 
 	public PlayerCharacter player;
 
@@ -114,7 +114,7 @@ public class GodScript : MonoBehaviour {
 	}
 
 	public void updateScoreLabel(int sc) {
-		scoreText.SetText ("Score: " + sc.ToString ());
+		scoreText.text = "Score: " + sc.ToString ();
 	}
 
     public void ResetLevel()

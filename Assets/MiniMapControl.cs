@@ -68,7 +68,6 @@ public class MiniMapControl : MonoBehaviour {
 			}
 
 		}
-
 		actors.Clear();
 		actors.AddRange (tmp);
 	}

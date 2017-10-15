@@ -11,10 +11,19 @@ public class StartGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Input.GetKeyUp (KeyCode.Space)) ||  (Input.GetMouseButtonUp (0))) {
-			LoadCity ();
-		}
+
 	}
+
+	public void LoadTutorial() {
+		//load tutorial scene
+		Debug.Log("LoadTutorial()");
+		SceneManager.LoadScene ("TutorialScene");
+	}
+
+	public void LoadLargeMap() {
+		//todo
+	}
+
 
 	public void LoadCity() {
 		//load city scene:

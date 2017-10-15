@@ -8,7 +8,7 @@ public class Police : Person {
 	//public PlayerCharacter player;
 	public Person fugitive;
 
-	private const float distanceToLose = 12f;
+	private const float distanceToLose = 100f;
 	private const float distanceToBust = 2.5f;
 
 	public float distanceToFugitive = 0.0f;
@@ -52,6 +52,7 @@ public class Police : Person {
 		}
 
 		float distanceToPlayer = Vector3.Distance (transform.position, godScript.player.transform.position);
+
 		if ((distanceToPlayer < distanceToFollow) && (distanceToPlayer <= distanceToClosestFugitive)) {
 		//	Debug.Log ("Distance to player " + distanceToPlayer.ToString ());
 			closestFugitive = godScript.player;
@@ -69,8 +70,6 @@ public class Police : Person {
 		}
 
 		fugitive = closestFugitive;
-
-
 
 		if (followingFugitive) { //chasing mode
 			patrolSprite.GetComponent<SpriteRenderer>().enabled = false;
