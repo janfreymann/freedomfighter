@@ -78,17 +78,18 @@ public class GodScript : MonoBehaviour {
 	public void LoseGame ()
 	{
 		SceneManager.LoadScene ("GameOverScene");	
-		AkSoundEngine.PostEvent ("Stop_atmo_loop2", mControl.gameObject);
+		AkSoundEngine.PostEvent ("Stop_Atmo", mControl.gameObject);
 		AkSoundEngine.PostEvent ("Stop_RevolutionMusic", mControl.gameObject);
 	}
 	public void WinGame() {
 		SceneManager.LoadScene ("WinGameScene");
-		AkSoundEngine.PostEvent ("Stop_atmo_loop2", mControl.gameObject);
+		AkSoundEngine.PostEvent ("Stop_Atmo", mControl.gameObject);
 		AkSoundEngine.PostEvent ("Stop_RevolutionMusic", mControl.gameObject);
 		AkSoundEngine.PostEvent ("Play_win", mControl.gameObject);
 		Time.timeScale = 0;
 	}
 	public void respawnRandomCitizen() {
+		AkSoundEngine.PostEvent ("Play_shh", mControl.gameObject);
 		int k = Random.Range (0, spawnPoints.Length-1);
 		while (spawnPoints [k].npcType != NPCType.CITIZEN) { //assume at least one citizen in spawn points, otherwise inifinite loop - todo: fix!
 			k = (k + 1) % spawnPoints.Length;

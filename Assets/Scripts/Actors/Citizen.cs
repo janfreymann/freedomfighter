@@ -78,7 +78,6 @@ public class Citizen : Person {
                 
 				GameMaster.getInstance ().notifyCitizenTurned();
 				AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
-				AkSoundEngine.PostEvent ("Play_shh", gameObject);
 
 				godScript.miniMap.removeActor (this); //quickly remove and add to change icon
                 godScript.miniMap.addActor (this); //new actor will be loaded with citizen turned icon on mini map
