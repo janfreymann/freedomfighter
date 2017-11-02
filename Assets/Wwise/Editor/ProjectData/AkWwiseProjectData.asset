@@ -1,0 +1,438 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03829afd29b3c4bf8b70bea7840dea4c, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  CurrentPluginConfig: Debug
+  EventWwu:
+  - PhysicalPath: Events/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{B8FDC946-EBA3-48A3-8620-8CE527A4E6DB}'
+    m_lastTimePsrt1: 63235968
+    m_lastTimePart2: -1999298006
+    List:
+    - Name: Play_Atmo
+      Path: Default Work Unit/Play_Atmo
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Atmo
+        ObjectType: 3
+      ID: -1161780747
+      Guid: 8bb912e7a5d7a34fb5e4a0f26ffa25cf
+      maxAttenuation: 0
+    - Name: Play_BootRun
+      Path: Default Work Unit/Play_BootRun
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_BootRun
+        ObjectType: 3
+      ID: 896249025
+      Guid: 8aa70c5bcdea5746a939b44e5214388f
+      maxAttenuation: 0
+    - Name: Play_BootWalk
+      Path: Default Work Unit/Play_BootWalk
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_BootWalk
+        ObjectType: 3
+      ID: 412036905
+      Guid: 758ec1c132ed8c43977ee38b12f4f03a
+      maxAttenuation: 0
+    - Name: Play_bust_player
+      Path: Default Work Unit/Play_bust_player
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_bust_player
+        ObjectType: 3
+      ID: 1560756756
+      Guid: 153957bd4116934fbedff59b7fc59bfa
+      maxAttenuation: 0
+    - Name: Play_BustCititzen
+      Path: Default Work Unit/Play_BustCititzen
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_BustCititzen
+        ObjectType: 3
+      ID: -1435356738
+      Guid: 1074efccd9184c48ab621d4b0e78fdb5
+      maxAttenuation: 0
+    - Name: Play_buttonclick
+      Path: Default Work Unit/Play_buttonclick
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_buttonclick
+        ObjectType: 3
+      ID: -746431486
+      Guid: 97a52f96f4c18b4da148443a82773849
+      maxAttenuation: 0
+    - Name: Play_draw_sword
+      Path: Default Work Unit/Play_draw_sword
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_draw_sword
+        ObjectType: 3
+      ID: 369451146
+      Guid: 622340ba35708a44b33032eb689fd731
+      maxAttenuation: 0
+    - Name: Play_FlyerDrop
+      Path: Default Work Unit/Play_FlyerDrop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_FlyerDrop
+        ObjectType: 3
+      ID: 2051790515
+      Guid: e7814180c3f94d44a165af03cb07fa2d
+      maxAttenuation: 0
+    - Name: Play_mainmenumusic
+      Path: Default Work Unit/Play_mainmenumusic
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_mainmenumusic
+        ObjectType: 3
+      ID: 667425441
+      Guid: 60afa188390ff048b19ef5c10664c2be
+      maxAttenuation: 0
+    - Name: Play_pickupFlyer
+      Path: Default Work Unit/Play_pickupFlyer
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_pickupFlyer
+        ObjectType: 3
+      ID: -1130245112
+      Guid: 80b9c50813f1054f929e7865193836eb
+      maxAttenuation: 0
+    - Name: Play_RevolutionMusic
+      Path: Default Work Unit/Play_RevolutionMusic
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_RevolutionMusic
+        ObjectType: 3
+      ID: -1284141236
+      Guid: aa2212f1b6a3454381e61d5bda73e415
+      maxAttenuation: 0
+    - Name: Play_score
+      Path: Default Work Unit/Play_score
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_score
+        ObjectType: 3
+      ID: -1054917780
+      Guid: 6232c4865ec16f4fa60e0ff1a6b6ea3f
+      maxAttenuation: 0
+    - Name: Play_Scream
+      Path: Default Work Unit/Play_Scream
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Scream
+        ObjectType: 3
+      ID: -1824430895
+      Guid: 2dd16af369e5db419f6d6138a40b8264
+      maxAttenuation: 0
+    - Name: Play_shh
+      Path: Default Work Unit/Play_shh
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_shh
+        ObjectType: 3
+      ID: -1187392643
+      Guid: 98d829a22439a74fb7fe1c63b9d26cec
+      maxAttenuation: 0
+    - Name: Play_ShoeRun
+      Path: Default Work Unit/Play_ShoeRun
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_ShoeRun
+        ObjectType: 3
+      ID: -1734821814
+      Guid: 4a147fbb4954a743aebe7c15ca8dd3a6
+      maxAttenuation: 0
+    - Name: Play_ShoeWalk
+      Path: Default Work Unit/Play_ShoeWalk
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_ShoeWalk
+        ObjectType: 3
+      ID: -939337164
+      Guid: a90d068fcc871f42a43ac0fc3badbb2d
+      maxAttenuation: 0
+    - Name: Play_tearFlyer
+      Path: Default Work Unit/Play_tearFlyer
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_tearFlyer
+        ObjectType: 3
+      ID: -164684868
+      Guid: ef32d2749cd2f649a329bc9c578f82f5
+      maxAttenuation: 0
+    - Name: Play_WhistleCitizen
+      Path: Default Work Unit/Play_WhistleCitizen
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_WhistleCitizen
+        ObjectType: 3
+      ID: 512715596
+      Guid: 6e4af2291bb3384eaeeafbbd86c3edcc
+      maxAttenuation: 0
+    - Name: Play_WhistlePlayer
+      Path: Default Work Unit/Play_WhistlePlayer
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_WhistlePlayer
+        ObjectType: 3
+      ID: -1726838429
+      Guid: d19af1a654c2db49b5f991aeeb9550d1
+      maxAttenuation: 0
+    - Name: Play_win
+      Path: Default Work Unit/Play_win
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_win
+        ObjectType: 3
+      ID: -1338979616
+      Guid: 78a67c4e3256dc4882ae7b1d239620c5
+      maxAttenuation: 0
+    - Name: Stop_Atmo
+      Path: Default Work Unit/Stop_Atmo
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_Atmo
+        ObjectType: 3
+      ID: 1589329935
+      Guid: d0eb082f6810d24da45a619fc90c79fd
+      maxAttenuation: 0
+    - Name: Stop_mainmenumusic
+      Path: Default Work Unit/Stop_mainmenumusic
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_mainmenumusic
+        ObjectType: 3
+      ID: 1307794083
+      Guid: f9fc01ab1d6b5d4cb2118a9dc2518717
+      maxAttenuation: 0
+    - Name: Stop_RevolutionMusic
+      Path: Default Work Unit/Stop_RevolutionMusic
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_RevolutionMusic
+        ObjectType: 3
+      ID: 1394819514
+      Guid: a698f52e3caa3243983ceb38b290e8ba
+      maxAttenuation: 0
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{E4CB53A2-9797-49D5-B23F-C7AA7C659726}'
+    m_lastTimePsrt1: 1085014016
+    m_lastTimePart2: -1999302844
+    List: []
+  StateWwu:
+  - PhysicalPath: States/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{FCE2AC88-D22F-43D7-A6A0-087B69C88BF8}'
+    m_lastTimePsrt1: 432570752
+    m_lastTimePart2: -1999298485
+    List:
+    - Name: CitizenState
+      Path: Default Work Unit/CitizenState
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: CitizenState
+        ObjectType: 9
+      ID: -885771238
+      Guid: 870b9033a5aebc429d81cd0be5470845
+      values:
+      - None
+      - Normal
+      - Turned
+      ValueIcons:
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: Normal
+        ObjectType: 8
+      - ElementName: Turned
+        ObjectType: 8
+      valueIDs: db3ba32c98c427451fc88b9f
+      ValueGuids:
+      - bytes: 770237475d03f14880ce744aa3d0deb7
+      - bytes: e345ed00f6152e4c8ef34145a44796a6
+      - bytes: 15b9e5a846527741889af55ff030b715
+    - Name: LevelState
+      Path: Default Work Unit/LevelState
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: LevelState
+        ObjectType: 9
+      ID: -821879728
+      Guid: 656c3a1b4c9e264eb47138631782af82
+      values:
+      - LargerCity
+      - None
+      - SmallCity
+      ValueIcons:
+      - ElementName: LargerCity
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: SmallCity
+        ObjectType: 8
+      valueIDs: 9df036d7db3ba32c335a7e64
+      ValueGuids:
+      - bytes: 6877a18221edf24496d96155f3954ec6
+      - bytes: ef31033d015de74d9c5a616b65c03ae1
+      - bytes: 9041280216e55940ab98f64297d8e4ec
+    - Name: PlayerState
+      Path: Default Work Unit/PlayerState
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: PlayerState
+        ObjectType: 9
+      ID: -1009732431
+      Guid: 1b6adf0516557f4bbcf401b2f3173b32
+      values:
+      - Chased
+      - None
+      - Normal
+      ValueIcons:
+      - ElementName: Chased
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: Normal
+        ObjectType: 8
+      valueIDs: 07a0691ddb3ba32c98c42745
+      ValueGuids:
+      - bytes: e271cf35285efa41ab41220b99219ed7
+      - bytes: febdce06e1d9eb4e8e70df03c9e9240e
+      - bytes: cba685985153774ca802881767de4586
+    - Name: RevoState
+      Path: Default Work Unit/RevoState
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: RevoState
+        ObjectType: 9
+      ID: 618715178
+      Guid: 9f7e4ab6fd0c9f4c80d0b7c9d3aacc0e
+      values:
+      - level1
+      - level2
+      - level3
+      - level4
+      - level5
+      - None
+      ValueIcons:
+      - ElementName: level1
+        ObjectType: 8
+      - ElementName: level2
+        ObjectType: 8
+      - ElementName: level3
+        ObjectType: 8
+      - ElementName: level4
+        ObjectType: 8
+      - ElementName: level5
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      valueIDs: 6e8da29f6d8da29f6c8da29f6b8da29f6a8da29fdb3ba32c
+      ValueGuids:
+      - bytes: eecca2d128c16b469fc45ff4871f4c4c
+      - bytes: 81f20f30204ee14794ae729cdb19e1b5
+      - bytes: 6b8b548df4e3f043828e1fdb29767832
+      - bytes: 8418dfb10a332b40858dea7e14063799
+      - bytes: 84990577af5b2a448b98ee990033346d
+      - bytes: aaf1ab1561b0bd4d863aee2fbbe9caec
+  SwitchWwu:
+  - PhysicalPath: Switches/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{9D66057F-8031-4822-97CF-7ABDDFCA52A9}'
+    m_lastTimePsrt1: 1085014016
+    m_lastTimePart2: -1999302844
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{596E3A1C-179A-4700-B0E8-928FBC835BDB}'
+    m_lastTimePsrt1: 1085014016
+    m_lastTimePart2: -1999302844
+    List:
+    - Name: DefaultBank
+      Path: Default Work Unit/DefaultBank
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: DefaultBank
+        ObjectType: 7
+      ID: 187290962
+      Guid: 5a4c9731d5eca844ab7edf1a88936448
+  RtpcWwu:
+  - PhysicalPath: Game Parameters/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{E9032586-EAF3-4C43-BC01-A5EF637C6963}'
+    m_lastTimePsrt1: -2034399616
+    m_lastTimePart2: -1999300228
+    List:
+    - Name: AtmoSize
+      Path: Default Work Unit/AtmoSize
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: AtmoSize
+        ObjectType: 13
+      ID: 2099682757
+      Guid: 15590a73cce7104ba22f67c0a036c80c
+  TriggerWwu:
+  - PhysicalPath: Triggers/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{648160C9-DA41-4EED-8AC0-69935874F8FB}'
+    m_lastTimePsrt1: 1095014016
+    m_lastTimePart2: -1999302844
+    List: []
+  ExpandedItems:
+  - /FreedomSound
+  - /FreedomSound/Events
+  - /FreedomSound/Events/Default Work Unit
+  m_lastPopulateTimePsrt1: 0
+  m_lastPopulateTimePart2: 0
+  autoPopulateEnabled: 1
+  basePath: Audio/GeneratedSoundBanks
+  language: English(US)
+  defaultPoolSize: 4096
+  lowerPoolSize: 2048
+  streamingPoolSize: 1024
+  preparePoolSize: 0
+  memoryCutoffThreshold: 0.95
+  callbackManagerBufferSize: 4

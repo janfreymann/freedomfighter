@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ee3d5ed1a27424c9fa29a2f06f1e5061
+timeCreated: 1497767652
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Thonburi
+  fontNames:
+  - Thonburi
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

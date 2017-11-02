@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bc3879955d2363f4894252902a8e13b5
+timeCreated: 1497717193
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: HVD Bodedo
+  fontNames:
+  - HVD Bodedo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

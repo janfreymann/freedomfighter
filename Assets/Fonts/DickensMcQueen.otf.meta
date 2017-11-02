@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 5cd1f799b963ddc4eae848893c199cc7
+timeCreated: 1497717193
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Dickens McQueen
+  fontNames:
+  - Dickens McQueen
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
