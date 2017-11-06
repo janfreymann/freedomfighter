@@ -1,0 +1,699 @@
+fileFormatVersion: 2
+guid: dcdfcd0b324781c4699f7035c36941f7
+timeCreated: 1509472446
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: schwert_oolizei_16frames_neu_0
+    21300002: schwert_oolizei_16frames_neu_1
+    21300004: schwert_oolizei_16frames_neu_2
+    21300006: schwert_oolizei_16frames_neu_3
+    21300008: schwert_oolizei_16frames_neu_4
+    21300010: schwert_oolizei_16frames_neu_5
+    21300012: schwert_oolizei_16frames_neu_6
+    21300014: schwert_oolizei_16frames_neu_7
+    21300016: schwert_oolizei_16frames_neu_8
+    21300018: schwert_oolizei_16frames_neu_9
+    21300020: schwert_oolizei_16frames_neu_10
+    21300022: schwert_oolizei_16frames_neu_11
+    21300024: schwert_oolizei_16frames_neu_12
+    21300026: schwert_oolizei_16frames_neu_13
+    21300028: schwert_oolizei_16frames_neu_14
+    21300030: schwert_oolizei_16frames_neu_15
+    21300032: schwert_oolizei_16frames_neu_16
+    21300034: schwert_oolizei_16frames_neu_17
+    21300036: schwert_oolizei_16frames_neu_18
+    21300038: schwert_oolizei_16frames_neu_19
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -172.5, y: 101.9058}
+        - {x: -187.5, y: 62.13768}
+        - {x: -187.5, y: -82.021736}
+        - {x: -152.5, y: -116.81884}
+        - {x: 12.5, y: -116.81884}
+        - {x: 247.5, y: -7.4565215}
+        - {x: 252.5, y: 7.4565215}
+        - {x: 252.5, y: 96.934784}
+        - {x: 242.5, y: 101.9058}
+      physicsShape:
+      - - {x: -182.5, y: 96.934784}
+        - {x: -182.5, y: -86.99275}
+        - {x: -147.5, y: -106.87681}
+        - {x: 47.5, y: -106.87681}
+        - {x: 237.5, y: 12.427536}
+        - {x: 242.5, y: 27.34058}
+        - {x: 242.5, y: 96.934784}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -185.49998, y: 106.87681}
+        - {x: -185.49998, y: -86.99275}
+        - {x: -130.49998, y: -116.81884}
+        - {x: 64.50001, y: -116.81884}
+        - {x: 249.5, y: 27.34058}
+        - {x: 249.5, y: 106.87681}
+      physicsShape:
+      - - {x: -165.49998, y: 96.934784}
+        - {x: -180.49998, y: 52.195652}
+        - {x: -180.49998, y: -91.96377}
+        - {x: -140.49998, y: -106.87681}
+        - {x: 29.500008, y: -106.87681}
+        - {x: 239.5, y: 42.253624}
+        - {x: 239.5, y: 96.934784}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -180.99998, y: 116.81884}
+        - {x: -180.99998, y: -111.847824}
+        - {x: -140.99998, y: -116.81884}
+        - {x: 84.000015, y: -116.81884}
+        - {x: 174.00002, y: -47.224636}
+        - {x: 244.00002, y: 52.195652}
+        - {x: 244.00002, y: 116.81884}
+      physicsShape:
+      - - {x: -140.99998, y: 106.87681}
+        - {x: -175.99998, y: 47.224636}
+        - {x: -175.99998, y: -96.934784}
+        - {x: -165.99998, y: -106.87681}
+        - {x: 44.000015, y: -106.87681}
+        - {x: 234.00002, y: 52.195652}
+        - {x: 234.00002, y: 106.87681}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 173.50006, y: 126.76087}
+        - {x: -151.49994, y: 111.847824}
+        - {x: -186.49994, y: 72.07971}
+        - {x: -186.49994, y: -72.07971}
+        - {x: -171.49994, y: -116.81884}
+        - {x: 23.500061, y: -116.81884}
+        - {x: 233.50006, y: 62.13768}
+        - {x: 233.50006, y: 111.847824}
+        - {x: 228.50006, y: 126.76087}
+      physicsShape:
+      - - {x: -161.49994, y: 121.789856}
+        - {x: -181.49994, y: 72.07971}
+        - {x: -181.49994, y: -106.87681}
+        - {x: 13.500061, y: -106.87681}
+        - {x: 223.50006, y: -7.4565215}
+        - {x: 223.50006, y: 121.789856}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -129.49997, y: 136.7029}
+        - {x: -184.49997, y: 116.81884}
+        - {x: -184.49997, y: -91.96377}
+        - {x: -149.49997, y: -116.81884}
+        - {x: 35.50003, y: -116.81884}
+        - {x: 230.50003, y: 52.195652}
+        - {x: 230.50003, y: 131.73189}
+        - {x: 225.50003, y: 136.7029}
+      physicsShape:
+      - - {x: -164.49997, y: 131.73189}
+        - {x: -174.49997, y: 86.99275}
+        - {x: -174.49997, y: -96.934784}
+        - {x: -169.49997, y: -106.87681}
+        - {x: 45.50003, y: -106.87681}
+        - {x: 190.50003, y: 27.34058}
+        - {x: 220.50003, y: 86.99275}
+        - {x: 220.50003, y: 131.73189}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -187.5, y: 146.64493}
+        - {x: -187.5, y: -101.9058}
+        - {x: -137.5, y: -116.81884}
+        - {x: 52.5, y: -116.81884}
+        - {x: 217.5, y: 77.05072}
+        - {x: 217.5, y: 146.64493}
+      physicsShape:
+      - - {x: 207.5, y: 131.73189}
+        - {x: 202.5, y: 141.6739}
+        - {x: 157.5, y: 141.6739}
+        - {x: -147.5, y: 96.934784}
+        - {x: -182.5, y: 62.13768}
+        - {x: -182.5, y: -52.195652}
+        - {x: -157.5, y: -106.87681}
+        - {x: -22.5, y: -106.87681}
+        - {x: 17.5, y: -91.96377}
+        - {x: 207.5, y: 96.934784}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -185.49988, y: 96.934784}
+        - {x: -185.49988, y: -116.81884}
+        - {x: 24.500122, y: -116.81884}
+        - {x: 209.50012, y: -52.195652}
+        - {x: 209.50012, y: 161.55797}
+        - {x: 94.50012, y: 161.55797}
+        - {x: -165.49988, y: 136.7029}
+      physicsShape:
+      - - {x: 119.50012, y: 151.61594}
+        - {x: -55.499878, y: 141.6739}
+        - {x: -180.49988, y: 67.108696}
+        - {x: -180.49988, y: -57.166668}
+        - {x: -140.49988, y: -106.87681}
+        - {x: -35.499878, y: -106.87681}
+        - {x: 44.500122, y: -77.05072}
+        - {x: 199.50012, y: 96.934784}
+        - {x: 199.50012, y: 151.61594}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_7
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -106.00006, y: 166.52898}
+        - {x: -181.00006, y: 86.99275}
+        - {x: -181.00006, y: -77.05072}
+        - {x: -156.00006, y: -116.81884}
+        - {x: 53.99994, y: -116.81884}
+        - {x: 203.99994, y: 67.108696}
+        - {x: 203.99994, y: 166.52898}
+      physicsShape:
+      - - {x: -176.00006, y: 161.55797}
+        - {x: -176.00006, y: -96.934784}
+        - {x: -166.00006, y: -106.87681}
+        - {x: 73.99994, y: -106.87681}
+        - {x: 193.99994, y: 47.224636}
+        - {x: 193.99994, y: 161.55797}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_8
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 193.50006, y: 171.5}
+        - {x: 93.50006, y: 171.5}
+        - {x: -186.49994, y: 91.96377}
+        - {x: -186.49994, y: -52.195652}
+        - {x: -156.49994, y: -116.81884}
+        - {x: -26.499939, y: -116.81884}
+        - {x: 18.500061, y: -86.99275}
+        - {x: 43.50006, y: -67.108696}
+        - {x: 193.50006, y: 96.934784}
+      physicsShape:
+      - - {x: 173.50006, y: 171.5}
+        - {x: 88.50006, y: 171.5}
+        - {x: -181.49994, y: 67.108696}
+        - {x: -181.49994, y: -82.021736}
+        - {x: -126.49994, y: -111.847824}
+        - {x: 3.500061, y: -111.847824}
+        - {x: 28.500061, y: -101.9058}
+        - {x: 178.50006, y: 77.05072}
+        - {x: 178.50006, y: 161.55797}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_9
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 200.50018, y: 166.52898}
+        - {x: 115.50018, y: 166.52898}
+        - {x: -94.49982, y: 121.789856}
+        - {x: -184.49982, y: 52.195652}
+        - {x: -184.49982, y: -47.224636}
+        - {x: -154.49982, y: -111.847824}
+        - {x: -124.49982, y: -116.81884}
+        - {x: -9.499817, y: -116.81884}
+        - {x: 35.500183, y: -96.934784}
+        - {x: 205.50018, y: 101.9058}
+        - {x: 205.50018, y: 151.61594}
+      physicsShape:
+      - - {x: 100.50018, y: 161.55797}
+        - {x: -149.49982, y: 91.96377}
+        - {x: -179.49982, y: 32.311592}
+        - {x: -179.49982, y: -52.195652}
+        - {x: -144.49982, y: -101.9058}
+        - {x: -139.49982, y: -106.87681}
+        - {x: 15.500183, y: -106.87681}
+        - {x: 195.50018, y: 67.108696}
+        - {x: 195.50018, y: 156.58696}
+        - {x: 185.50018, y: 161.55797}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_10
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -187.5, y: 161.55797}
+        - {x: -187.5, y: -67.108696}
+        - {x: -172.5, y: -116.81884}
+        - {x: 82.5, y: -116.81884}
+        - {x: 207.5, y: 42.253624}
+        - {x: 207.5, y: 161.55797}
+      physicsShape:
+      - - {x: 192.5, y: 151.61594}
+        - {x: 172.5, y: 151.61594}
+        - {x: 152.5, y: 131.73189}
+        - {x: -117.5, y: 111.847824}
+        - {x: -182.5, y: 42.253624}
+        - {x: -182.5, y: -86.99275}
+        - {x: -142.5, y: -106.87681}
+        - {x: 12.5, y: -106.87681}
+        - {x: 47.5, y: -72.07971}
+        - {x: 197.5, y: 101.9058}
+        - {x: 197.5, y: 136.7029}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_11
+      rect:
+        serializedVersion: 2
+        x: 5632
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -185.49988, y: 47.224636}
+        - {x: -185.49988, y: -27.34058}
+        - {x: -175.49988, y: -67.108696}
+        - {x: -135.49988, y: -116.81884}
+        - {x: 34.500122, y: -116.81884}
+        - {x: 219.50012, y: 82.021736}
+        - {x: 219.50012, y: 146.64493}
+        - {x: 19.500122, y: 146.64493}
+        - {x: -150.49988, y: 116.81884}
+      physicsShape:
+      - - {x: 19.500122, y: 141.6739}
+        - {x: -175.49988, y: 91.96377}
+        - {x: -175.49988, y: -77.05072}
+        - {x: -170.49988, y: -86.99275}
+        - {x: -130.49988, y: -106.87681}
+        - {x: -45.499878, y: -106.87681}
+        - {x: 34.500122, y: -91.96377}
+        - {x: 209.50012, y: 96.934784}
+        - {x: 209.50012, y: 126.76087}
+        - {x: 204.50012, y: 141.6739}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_12
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.000244, y: 136.7029}
+        - {x: -115.999756, y: 116.81884}
+        - {x: -180.99976, y: 47.224636}
+        - {x: -180.99976, y: -111.847824}
+        - {x: -150.99976, y: -116.81884}
+        - {x: 79.000244, y: -116.81884}
+        - {x: 209.00024, y: 22.369564}
+        - {x: 229.00024, y: 77.05072}
+        - {x: 229.00024, y: 136.7029}
+      physicsShape:
+      - - {x: -130.99976, y: 131.73189}
+        - {x: -175.99976, y: 62.13768}
+        - {x: -175.99976, y: -86.99275}
+        - {x: -135.99976, y: -106.87681}
+        - {x: 39.000244, y: -106.87681}
+        - {x: 219.00024, y: 42.253624}
+        - {x: 219.00024, y: 126.76087}
+        - {x: 214.00024, y: 131.73189}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_13
+      rect:
+        serializedVersion: 2
+        x: 6656
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -181.49963, y: 126.76087}
+        - {x: -186.49963, y: 106.87681}
+        - {x: -186.49963, y: -82.021736}
+        - {x: -161.49963, y: -116.81884}
+        - {x: 43.500366, y: -116.81884}
+        - {x: 233.50037, y: 57.166668}
+        - {x: 233.50037, y: 126.76087}
+      physicsShape:
+      - - {x: -141.49963, y: 121.789856}
+        - {x: -181.49963, y: 111.847824}
+        - {x: -181.49963, y: -106.87681}
+        - {x: 78.50037, y: -106.87681}
+        - {x: 203.50037, y: 32.311592}
+        - {x: 223.50037, y: 77.05072}
+        - {x: 223.50037, y: 121.789856}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_14
+      rect:
+        serializedVersion: 2
+        x: 7168
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -184.50012, y: 116.81884}
+        - {x: -184.50012, y: -111.847824}
+        - {x: -174.50012, y: -116.81884}
+        - {x: 0.49987793, y: -116.81884}
+        - {x: 245.49988, y: 52.195652}
+        - {x: 245.49988, y: 116.81884}
+      physicsShape:
+      - - {x: -124.50012, y: 106.87681}
+        - {x: -174.50012, y: 67.108696}
+        - {x: -174.50012, y: -82.021736}
+        - {x: -164.50012, y: -106.87681}
+        - {x: 25.499878, y: -106.87681}
+        - {x: 235.49988, y: 2.4855072}
+        - {x: 235.49988, y: 106.87681}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_15
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -187.5, y: -77.05072}
+        - {x: -162.5, y: -116.81884}
+        - {x: 22.5, y: -116.81884}
+        - {x: 247.5, y: 12.427536}
+        - {x: 247.5, y: 106.87681}
+        - {x: -167.5, y: 106.87681}
+        - {x: -187.5, y: 47.224636}
+      physicsShape:
+      - - {x: -182.5, y: 96.934784}
+        - {x: -182.5, y: -106.87681}
+        - {x: 142.5, y: -106.87681}
+        - {x: 237.5, y: -32.311592}
+        - {x: 237.5, y: 96.934784}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_16
+      rect:
+        serializedVersion: 2
+        x: 8192
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -175.49988, y: 101.9058}
+        - {x: -185.49988, y: 62.13768}
+        - {x: -185.49988, y: -82.021736}
+        - {x: -160.49988, y: -116.81884}
+        - {x: 24.500122, y: -116.81884}
+        - {x: 254.50012, y: 22.369564}
+        - {x: 254.50012, y: 101.9058}
+      physicsShape:
+      - - {x: -120.49988, y: 96.934784}
+        - {x: -180.49988, y: 47.224636}
+        - {x: -180.49988, y: -17.39855}
+        - {x: -165.49988, y: -72.07971}
+        - {x: -125.49988, y: -106.87681}
+        - {x: 44.500122, y: -106.87681}
+        - {x: 244.50012, y: 37.282608}
+        - {x: 244.50012, y: 86.99275}
+        - {x: 239.50012, y: 96.934784}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_17
+      rect:
+        serializedVersion: 2
+        x: 8704
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -115.999756, y: 101.9058}
+        - {x: -180.99976, y: 77.05072}
+        - {x: -180.99976, y: -77.05072}
+        - {x: -150.99976, y: -116.81884}
+        - {x: 14.000244, y: -116.81884}
+        - {x: 256, y: 2.4855072}
+        - {x: 256, y: 77.05072}
+        - {x: 244.00024, y: 96.934784}
+        - {x: 214.00024, y: 91.96377}
+        - {x: 144.00024, y: 101.9058}
+      physicsShape:
+      - - {x: -175.99976, y: 96.934784}
+        - {x: -175.99976, y: -106.87681}
+        - {x: 29.000244, y: -106.87681}
+        - {x: 249.00024, y: -37.282608}
+        - {x: 249.00024, y: 96.934784}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_18
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -181.49963, y: 101.9058}
+        - {x: -186.49963, y: 91.96377}
+        - {x: -186.49963, y: -42.253624}
+        - {x: -171.49963, y: -77.05072}
+        - {x: -131.49963, y: -116.81884}
+        - {x: 8.500366, y: -116.81884}
+        - {x: 238.50037, y: -7.4565215}
+        - {x: 253.50037, y: 2.4855072}
+        - {x: 253.50037, y: 101.9058}
+      physicsShape:
+      - - {x: -121.49963, y: 96.934784}
+        - {x: -181.49963, y: 77.05072}
+        - {x: -181.49963, y: -106.87681}
+        - {x: 73.50037, y: -106.87681}
+        - {x: 243.50037, y: -47.224636}
+        - {x: 243.50037, y: 72.07971}
+        - {x: 233.50037, y: 91.96377}
+        - {x: 208.50037, y: 96.934784}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: schwert_oolizei_16frames_neu_19
+      rect:
+        serializedVersion: 2
+        x: 9728
+        y: 0
+        width: 512
+        height: 343
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 240.49988, y: 91.96377}
+        - {x: 105.49988, y: 101.9058}
+        - {x: -174.50012, y: 101.9058}
+        - {x: -179.50012, y: 77.05072}
+        - {x: -179.50012, y: -91.96377}
+        - {x: -159.50012, y: -116.81884}
+        - {x: 50.499878, y: -116.81884}
+        - {x: 255.49988, y: 32.311592}
+        - {x: 255.49988, y: 82.021736}
+      physicsShape:
+      - - {x: -144.50012, y: 96.934784}
+        - {x: -174.50012, y: 62.13768}
+        - {x: -174.50012, y: -86.99275}
+        - {x: -169.50012, y: -106.87681}
+        - {x: 55.499878, y: -106.87681}
+        - {x: 250.49988, y: -2.4855072}
+        - {x: 250.49988, y: 96.934784}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
