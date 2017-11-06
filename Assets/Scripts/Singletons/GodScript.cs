@@ -28,12 +28,17 @@ public class GodScript : MonoBehaviour {
 
     public GameObject pauseOverlay;
 
+    public BigFlyer bigFlyer;
+
 	static public float boundsXmin = -16.5f;
 	static public float boundsXmax = 12.3f;
 	static public float boundsYmin = -15.0f;
 	static public float boundsYmax = 14.7f;
 
 	public int uuidCount = 0;
+
+    bool showingFlyer = false;
+    bool alreadyShownFlyerFlag = false;
 
 	void OnLevelWasLoaded() {
 
@@ -81,18 +86,30 @@ public class GodScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (!showingFlyer)
         {
-            if (Time.timeScale > 0)
+            if (Input.GetKeyUp(KeyCode.Escape))
             {
-                Time.timeScale = 0;
-                pauseOverlay.gameObject.SetActive(true);
+                if (Time.timeScale > 0)
+                {
+                    Time.timeScale = 0;
+                    pauseOverlay.gameObject.SetActive(true);
+                }
+                else
+                {
+                    Time.timeScale = timeScale;
+                    pauseOverlay.gameObject.SetActive(false);
+                }
             }
-            else
+        }
+        else
+        {
+            if (Input.anyKeyDown || Input.GetMouseButton(1))
             {
+                bigFlyer.HideFlyer();
                 Time.timeScale = timeScale;
-                pauseOverlay.gameObject.SetActive(false);
-            }           
+                showingFlyer = false;
+            }
         }
     }
 
@@ -131,5 +148,16 @@ public class GodScript : MonoBehaviour {
     public void EndGame()
     {
         SceneManager.LoadScene("StartMenuScene");
+    }
+
+    public void TryShowFlyer()
+    {
+        if (!alreadyShownFlyerFlag)
+        {
+            bigFlyer.ShowFlyer();
+            showingFlyer = true;
+            alreadyShownFlyerFlag = true;
+            Time.timeScale = 0;
+        }
     }
 }
