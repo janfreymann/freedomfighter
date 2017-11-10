@@ -81,6 +81,8 @@ public class Citizen : Person {
 
                 this.tag = "Turned";
 
+                godScript.TryShowFlyer();
+
 				agent.speed = 3.0f;
 
                 transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
