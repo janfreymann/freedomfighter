@@ -616,7 +616,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 286772327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.2, y: -0.000061035156, z: 0}
+  m_LocalPosition: {x: 39.130005, y: -0.00010681152, z: 0}
   m_LocalScale: {x: 0.18, y: 0.18, z: 1}
   m_Children: []
   m_Father: {fileID: 1579784581}
@@ -624,8 +624,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.2, y: -0.00006043}
-  m_SizeDelta: {x: 324.82, y: 600}
+  m_AnchoredPosition: {x: 39.13, y: -0.000099643}
+  m_SizeDelta: {x: 397.57, y: 500.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286772329
 MonoBehaviour:
@@ -659,19 +659,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "An das badische Volk\n\nDie freiheitlichen Bestrebungen des badischen Volkes
-    entbehren der Einigung; die Aufregung \xE4u\xDFert sich teilweise in beklagenswerten
-    Ausbr\xFCchen. Die Feinde der Freiheit und des Vaterlandes treten zwar im Augenblicke
-    nicht offen auf \u2013 k\xF6nnen aber leicht wieder ihre Macht entwickeln. Unter
-    diesen Umst\xE4nden ist zum Schutz der \xF6ffentlichen Ordnung und der Rechte
-    des Volkes ein Zusammentreten aller Freunde des Vaterlandes notwendig, wenn sich
-    nicht der gute Geist zersplittern oder gar von feindseligen Umtrieben unterdr\xFCckt
-    sehen soll.\r\n\r\nVon diesen Erw\xE4gungen geleitet, laden die Unterzeichneten
-    aller badischen Staatsb\xFCrger, welche das Recht haben, Wahlm\xE4nner zu w\xE4hlen,
-    auf Sonntag den 19. d. M. Vormittags 10 Uhr zu einer allgemeinen Versammlung nach
-    Offenburg ein, wo das Weitere beraten und beschlossen werden wird.\r\n\nKarlsruhe,
-    den 9. M\xE4rz 1848\r\n\r\n\nStruve. Ibstein. Hecker. Soiron.\r\nPeter.  Richter.
-    \ Straub.  Mez.\r\nWelcker.  Kapp.  Sachs.  Baum.\r\n\n"
+  m_Text: "An das badische Volk\n\nMitb\xFCrger!\n\nIhr seid vorangegangen in dem
+    Verlangen nach den Rechten eines freien Volkes!"
 --- !u!222 &286772330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1450,17 +1439,17 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 567042470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.901768, y: -40.212006, z: 0}
+  m_LocalPosition: {x: -111.78906, y: 158.14998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1579784581}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.7413181, y: 1}
-  m_AnchoredPosition: {x: -40.39508, y: -40.212006}
-  m_SizeDelta: {x: -80.79004, y: -80.41998}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5355, y: 1}
+  m_AnchoredPosition: {x: -74.62909, y: 158.15}
+  m_SizeDelta: {x: -75.2581, y: -77.65176}
+  m_Pivot: {x: 0.50000024, y: 0.49999988}
 --- !u!95 &567042472
 Animator:
   serializedVersion: 3
@@ -1497,7 +1486,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 202ceb45e16f388458ba0ac590abfecf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fd9e85426b1677428ac7ed1e42b5166, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2907,7 +2896,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1454378328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.056, y: -0.000061035156, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0010070801, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1579784581}
@@ -2915,8 +2904,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.055992, y: -0.00006122649}
-  m_SizeDelta: {x: 800, y: 800}
+  m_AnchoredPosition: {x: -0.000011444, y: -0.0010052}
+  m_SizeDelta: {x: 800, y: 450.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1454378330
 Animator:
@@ -2948,7 +2937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31617647, g: 0.15577944, b: 0.03254757, a: 0.447}
+  m_Color: {r: 0.31617647, g: 0.15577944, b: 0.03254757, a: 0.699}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3273,7 +3262,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1579784580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -100.28001, y: 0.00032043457, z: 0}
+  m_LocalPosition: {x: -0.0024871826, y: 0.039344788, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 1454378329}
@@ -3284,8 +3273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100.28, y: 0.00032043457}
-  m_SizeDelta: {x: 119.89, y: 90}
+  m_AnchoredPosition: {x: -0.0024872, y: 0.039343}
+  m_SizeDelta: {x: 160, y: 90.016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1579784582
 MonoBehaviour:
@@ -3560,6 +3549,7 @@ MonoBehaviour:
   pauseOverlay: {fileID: 252234398}
   bigFlyer: {fileID: 1579784582}
   uuidCount: 0
+  showingFlyer: 0
 --- !u!4 &1642338374
 Transform:
   m_ObjectHideFlags: 0
