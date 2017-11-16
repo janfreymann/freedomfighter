@@ -30,10 +30,14 @@ public class GameMaster {
 		flyerAmmoManager = fam;
 	}
 	public bool CheckAndDropFlyer() {
-		bool result = flyerAmmoManager.checkAndDropFlyer ();
-		Debug.Log ("checkAndDropFlyer(): " + result);
-		return result;
-	}
+        bool result = false;
+        if (!godScript.showingFlyer)
+        {
+            result = flyerAmmoManager.checkAndDropFlyer();
+        }
+        Debug.Log("checkAndDropFlyer(): " + result);
+        return result;
+    }
 
 	public void setScoreTowin(int toWin) { //todo: dirty - fix!
 		scoreToWin = toWin;
