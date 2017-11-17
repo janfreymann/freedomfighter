@@ -40,3 +40,4 @@ sysinfo.txt
 *.unitypackage
 
 # End of https://www.gitignore.io/api/unity
+Assets/WwiseSettings.xml

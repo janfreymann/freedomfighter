@@ -37,7 +37,7 @@ public class GodScript : MonoBehaviour {
 
 	public int uuidCount = 0;
 
-    bool showingFlyer = false;
+    public bool showingFlyer = false;
     bool alreadyShownFlyerFlag = false;
 
 	void OnLevelWasLoaded() {
@@ -155,9 +155,15 @@ public class GodScript : MonoBehaviour {
         if (!alreadyShownFlyerFlag)
         {
             bigFlyer.ShowFlyer();
-            showingFlyer = true;
-            alreadyShownFlyerFlag = true;
             Time.timeScale = 0;
+            StartCoroutine(Wait()); // small timeout so that the flyer does not go away too quickly
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        showingFlyer = true;
+        alreadyShownFlyerFlag = true;
     }
 }
