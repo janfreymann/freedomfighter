@@ -35,6 +35,8 @@ public class GodScript : MonoBehaviour {
 	static public float boundsYmin = -15.0f;
 	static public float boundsYmax = 14.7f;
 
+	private bool spawnStupidCitizens;
+
 	public int uuidCount = 0;
 
     public bool showingFlyer = false;
@@ -49,37 +51,50 @@ public class GodScript : MonoBehaviour {
 		Debug.Log ("godscript: Start()");
 		Time.timeScale = timeScale;
 		uuidCount = 0;
+		spawnStupidCitizens = false;
+		bool policeSpawn = false;
+		int scoreToWin = 0;
+		int ammo = 6;
+
+		Scene scene = SceneManager.GetActiveScene ();
+		if (scene.name.Equals ("TutorialScene")) {
+			scoreToWin = 50;
+			GodScript.boundsXmin = -16.5f;
+			GodScript.boundsXmax = 12.3f;
+			GodScript.boundsYmin = -15.0f;
+			GodScript.boundsYmax = 14.7f;
+		} else if (scene.name.Equals ("CityScene")) {
+			scoreToWin = 100;
+			ammo = 8;
+			GodScript.boundsXmin = -16.5f;
+			GodScript.boundsXmax = 12.3f;
+			GodScript.boundsYmin = -15.0f;
+			GodScript.boundsYmax = 14.7f;
+		} else if (scene.name.Equals ("LargeScene")) {
+			scoreToWin = 200;
+			ammo = 15;
+			GodScript.boundsXmin = -45.21f;
+			GodScript.boundsXmax = 35.63f;
+			GodScript.boundsYmax = 41.4f;
+			GodScript.boundsYmin = -39.6f;
+			spawnStupidCitizens = true;
+			policeSpawn = true;
+		}
+
 		//spawn NPCs:
 		foreach(SpawnPoint sp in spawnPoints) {
-			GetComponent<NPCFactoryScript> ().spawnNPC (sp, uuidCount);
+			GetComponent<NPCFactoryScript> ().spawnNPC (sp, uuidCount, spawnStupidCitizens);
 			uuidCount++;
 		}
 
 		GameMaster gm = GameMaster.getInstance ();
 		gm.registerGodScript (this);
-		Scene scene = SceneManager.GetActiveScene ();
-		if (scene.name.Equals ("TutorialScene")) {
-			gm.setScoreTowin (50);
-            GodScript.boundsXmin = -16.5f;
-            GodScript.boundsXmax = 12.3f;
-            GodScript.boundsYmin = -15.0f;
-            GodScript.boundsYmax = 14.7f;
-        } else if (scene.name.Equals ("CityScene")) {
-			gm.setScoreTowin (100);
-            GodScript.boundsXmin = -16.5f;
-            GodScript.boundsXmax = 12.3f;
-            GodScript.boundsYmin = -15.0f;
-            GodScript.boundsYmax = 14.7f;
-        } else if (scene.name.Equals ("LargeScene")) {
-			gm.setScoreTowin (150);
-            GodScript.boundsXmin = -45.21f;
-            GodScript.boundsXmax = 35.63f;
-            GodScript.boundsYmax = 41.4f;
-            GodScript.boundsYmin = -39.6f;
-        }
+
+		gm.setScoreTowin (scoreToWin);
+		gm.setPoliceSpawn (policeSpawn);
 
 		gm.notifyLevelStarted ();
-		flyerAmmo.AddAmmo (6);
+		flyerAmmo.AddAmmo (ammo);
 
         pauseOverlay.gameObject.SetActive(false);
     }
@@ -127,17 +142,26 @@ public class GodScript : MonoBehaviour {
 		Time.timeScale = 0;
 	}
 	public void respawnRandomCitizen() {
-		//AkSoundEngine.PostEvent ("Play_shh", mControl.gameObject);
+		int k = getRandomSpawnPoint (NPCType.CITIZEN);
+		GetComponent<NPCFactoryScript> ().spawnNPC (spawnPoints [k], uuidCount, spawnStupidCitizens);
+		uuidCount++;
+	}
+	public void spawnRandomPolice() {
+		int k = getRandomSpawnPoint (NPCType.POLICE);
+		GetComponent<NPCFactoryScript> ().spawnNPC (spawnPoints [k], uuidCount, false);
+		uuidCount++;
+
+	}
+	private int getRandomSpawnPoint(NPCType npcType) {
 		int k = Random.Range (0, spawnPoints.Length-1);
-		while (spawnPoints [k].npcType != NPCType.CITIZEN) { //assume at least one citizen in spawn points, otherwise inifinite loop - todo: fix!
+		while (spawnPoints [k].npcType != npcType) { //assume at least one fitting type in spawn points array, otherwise infinite loop.
 			k = (k + 1) % spawnPoints.Length;
 		}
-		GetComponent<NPCFactoryScript> ().spawnNPC (spawnPoints [k], uuidCount);
-		uuidCount++;
+		return k;
 	}
 
 	public void updateScoreLabel(int sc) {
-		scoreText.text = "Score: " + sc.ToString ();
+		scoreText.text = "Score: " + sc.ToString () + " / " + GameMaster.getInstance ().getScoreToWin ();
 	}
 
     public void ResetLevel()
