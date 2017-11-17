@@ -3520,22 +3520,22 @@ Prefab:
     - target: {fileID: 224836664771637526, guid: b8b027adbcd5f4ed898b9764268f8415,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -300.00003
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 224836664771637526, guid: b8b027adbcd5f4ed898b9764268f8415,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 86.40802
+      value: 845.35834
       objectReference: {fileID: 0}
     - target: {fileID: 224185329560818262, guid: b8b027adbcd5f4ed898b9764268f8415,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 320.00003
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 224185329560818262, guid: b8b027adbcd5f4ed898b9764268f8415,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -41.40802
+      value: -800.35834
       objectReference: {fileID: 0}
     - target: {fileID: 114994267758218050, guid: b8b027adbcd5f4ed898b9764268f8415,
         type: 2}
@@ -3555,7 +3555,7 @@ Prefab:
     - target: {fileID: 224860248916287116, guid: b8b027adbcd5f4ed898b9764268f8415,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -111.40802
+      value: -870.35834
       objectReference: {fileID: 0}
     - target: {fileID: 114017826481018070, guid: b8b027adbcd5f4ed898b9764268f8415,
         type: 2}
@@ -3563,6 +3563,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: d7dbceafe415fd44a9fc29469d8e4b4e,
         type: 3}
+    - target: {fileID: 114461278838536892, guid: b8b027adbcd5f4ed898b9764268f8415,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 206807b0d83000042b9f545b22a59a75,
+        type: 3}
+    - target: {fileID: 1758489805986100, guid: b8b027adbcd5f4ed898b9764268f8415, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114461278838536892, guid: b8b027adbcd5f4ed898b9764268f8415,
+        type: 2}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114461278838536892, guid: b8b027adbcd5f4ed898b9764268f8415,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b027adbcd5f4ed898b9764268f8415, type: 2}
   m_IsPrefabParent: 0
