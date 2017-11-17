@@ -77,6 +77,8 @@ public class Citizen : Person {
 			if (!turned) {
 				turned = true;
 
+				godScript.TryShowFlyer ();
+
                 Debug.Log("citizen found flyer");
 
                 this.tag = "Turned";
