@@ -177,9 +177,10 @@ MonoBehaviour:
   godScript: {fileID: 0}
   uuid: 0
   citizen_turned: {fileID: 21300000, guid: 2109fd9a9ce43bd418e81d982ae3f89a, type: 3}
-  citizen_stupid: {fileID: 21300000, guid: 4363c0bdaf408854e98d0e8a05b886a0, type: 3}
+  citizen_stupid: {fileID: 21300000, guid: 2b32fcf8d5a090945b73493e88aa8003, type: 3}
   exitPosition: {fileID: 0}
   turned: 0
+  stupid: 0
 --- !u!114 &114466510828647426
 MonoBehaviour:
   m_ObjectHideFlags: 1
