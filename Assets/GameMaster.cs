@@ -25,6 +25,7 @@ public class GameMaster {
 
 	private bool policeSpawn;
 
+    private List<bool> flyerAlreadyShown = new List<bool>{ false, false, false };
 
 	public void registerGodScript(GodScript gs) {
 		godScript = gs;
@@ -93,6 +94,17 @@ public class GameMaster {
 		heckerChaseCount--;
 		updateHeckerChaseState ();
 	}
+
+    public void notifyFlyerShown(int levelIndex)
+    {
+        flyerAlreadyShown[levelIndex] = true;
+    }
+
+    public bool checkIfFlyerAlreadyShown(int levelIndex)
+    {
+        return flyerAlreadyShown[levelIndex];
+    }
+
 	private void updateCitizenTurnedState() { //for game music
 		if (turnedCitizenCount <= 0) {
 			turnedCitizenCount = 0;

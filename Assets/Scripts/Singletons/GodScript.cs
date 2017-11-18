@@ -37,13 +37,15 @@ public class GodScript : MonoBehaviour {
 
 	private bool spawnStupidCitizens;
 
-
 	public int uuidCount = 0;
 
     public bool showingFlyer = false;
-    bool alreadyShownFlyerFlag = false;
 
-	void OnLevelWasLoaded() {
+    private GameMaster gm;
+
+    private int levelIndex; // zero-based
+
+    void OnLevelWasLoaded() {
 
 	}
 
@@ -60,6 +62,7 @@ public class GodScript : MonoBehaviour {
 		Scene scene = SceneManager.GetActiveScene ();
 		if (scene.name.Equals ("TutorialScene")) {
 			scoreToWin = 50;
+            levelIndex = 0;
 			GodScript.boundsXmin = -16.5f;
 			GodScript.boundsXmax = 12.3f;
 			GodScript.boundsYmin = -15.0f;
@@ -67,6 +70,7 @@ public class GodScript : MonoBehaviour {
 		} else if (scene.name.Equals ("CityScene")) {
 			scoreToWin = 100;
 			ammo = 8;
+            levelIndex = 1;
 			GodScript.boundsXmin = -16.5f;
 			GodScript.boundsXmax = 12.3f;
 			GodScript.boundsYmin = -15.0f;
@@ -74,6 +78,7 @@ public class GodScript : MonoBehaviour {
 		} else if (scene.name.Equals ("LargeScene")) {
 			scoreToWin = 200;
 			ammo = 15;
+            levelIndex = 2;
 			GodScript.boundsXmin = -45.21f;
 			GodScript.boundsXmax = 35.63f;
 			GodScript.boundsYmax = 41.4f;
@@ -91,7 +96,7 @@ public class GodScript : MonoBehaviour {
 			uuidCount++;
 		}
 
-		GameMaster gm = GameMaster.getInstance ();
+		gm = GameMaster.getInstance ();
 		gm.registerGodScript (this);
 
 		gm.setScoreTowin (scoreToWin);
@@ -194,7 +199,7 @@ public class GodScript : MonoBehaviour {
 
     public void TryShowFlyer()
     {
-        if (!alreadyShownFlyerFlag)
+        if (!gm.checkIfFlyerAlreadyShown(levelIndex))
         {
             bigFlyer.ShowFlyer();
             Time.timeScale = 0;
@@ -206,6 +211,6 @@ public class GodScript : MonoBehaviour {
     {
         yield return new WaitForSecondsRealtime(1);
         showingFlyer = true;
-        alreadyShownFlyerFlag = true;
+        gm.notifyFlyerShown(levelIndex);
     }
 }
