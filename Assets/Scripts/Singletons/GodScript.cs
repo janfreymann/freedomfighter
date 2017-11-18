@@ -37,6 +37,7 @@ public class GodScript : MonoBehaviour {
 
 	private bool spawnStupidCitizens;
 
+
 	public int uuidCount = 0;
 
     public bool showingFlyer = false;
@@ -81,7 +82,10 @@ public class GodScript : MonoBehaviour {
 			policeSpawn = true;
 		}
 
+		// randomize order of spawn points:
+		reshuffle(spawnPoints);
 		//spawn NPCs:
+
 		foreach(SpawnPoint sp in spawnPoints) {
 			GetComponent<NPCFactoryScript> ().spawnNPC (sp, uuidCount, spawnStupidCitizens);
 			uuidCount++;
@@ -98,6 +102,18 @@ public class GodScript : MonoBehaviour {
 
         pauseOverlay.gameObject.SetActive(false);
     }
+
+	void reshuffle(SpawnPoint[] points)
+	{
+		// Knuth shuffle algorithm :: courtesy of Wikipedia :)
+		for (int t = 0; t < points.Length; t++ )
+		{
+			SpawnPoint tmp = points[t];
+			int r = Random.Range(t, points.Length);
+			points[t] = points[r];
+			points[r] = tmp;
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -143,6 +159,8 @@ public class GodScript : MonoBehaviour {
 	}
 	public void respawnRandomCitizen() {
 		int k = getRandomSpawnPoint (NPCType.CITIZEN);
+		GetComponent<NPCFactoryScript> ().goodCitizenLeft (); // we know a good citizen left city or died, NPCFactory needs to keep track
+		// of good citizens to make sure that there is at least one good citizen present in the city
 		GetComponent<NPCFactoryScript> ().spawnNPC (spawnPoints [k], uuidCount, spawnStupidCitizens);
 		uuidCount++;
 	}

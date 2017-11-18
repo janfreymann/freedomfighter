@@ -21,6 +21,7 @@ public class GameMaster {
 
 	private int heckerChaseCount = 0;
 	private int turnedCitizenCount = 0;
+	private int goodCitizenCount = 0;
 
 	private bool policeSpawn;
 
@@ -55,10 +56,18 @@ public class GameMaster {
 		updateScoreRoutine ();
 	}
 	public void notifyTurnedCitizenLeft() {
+		if (policeSpawn) { // make sure that new citizens arrive in third level
+			godScript.respawnRandomCitizen ();
+		}
 		currentScore += pointsForExit;
 		updateScoreRoutine ();
 		turnedCitizenCount--;
 		updateCitizenTurnedState ();
+
+		if (policeSpawn) { // spawn two new police men for every recruited citizen
+			godScript.spawnRandomPolice ();
+			godScript.spawnRandomPolice ();
+		}
 	}
 
 	public void notifyTurnedCitizenDied() {
@@ -71,11 +80,6 @@ public class GameMaster {
 		updateScoreRoutine ();
 		turnedCitizenCount++;
 		updateCitizenTurnedState ();
-
-		if (policeSpawn) { // spawn two new police men for every recruited citizen
-			godScript.spawnRandomPolice ();
-			godScript.spawnRandomPolice ();
-		}
 	}
 
 	public void notifyHeckerDied() {

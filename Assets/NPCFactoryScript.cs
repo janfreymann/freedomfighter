@@ -11,6 +11,8 @@ public class NPCFactoryScript : MonoBehaviour {
 	public Transform gravityFix;
 	public Transform exitPosition;
 
+	public int goodCitizens = 0;
+
 	public void spawnNPC(SpawnPoint sp, int uuidCount, bool spawnStupidCitizens) {
 		if (sp.npcType == NPCType.CITIZEN) {			
 			Citizen citizenInstance = Instantiate (citizenPrefab, sp.startPosition.position, sp.startPosition.rotation) as Citizen;
@@ -21,10 +23,12 @@ public class NPCFactoryScript : MonoBehaviour {
 			citizenInstance.exitPosition = exitPosition;
 			citizenInstance.GetComponent<NavMeshAgent> ().Warp (sp.startPosition.position);
 			StartCoroutine(HoldNavAgent(citizenInstance.GetComponent<NavMeshAgent>()));
-			if (spawnStupidCitizens) {
-				if (Random.Range (0, 100) > 50) {
+			if ((spawnStupidCitizens && goodCitizens > 0)) { // always keep between one
+				if ((Random.Range (0, 100) > 50) || (goodCitizens >= 3)) { // and three good citizens on the map
 					citizenInstance.tag = "Stupid";
 				}
+			} else {
+				goodCitizens++;
 			}
 			citizenInstance.GetComponent<NavMeshAgent> ().enabled = true;
 
@@ -43,6 +47,10 @@ public class NPCFactoryScript : MonoBehaviour {
 	public IEnumerator HoldNavAgent(NavMeshAgent pathFinder) { 
 		yield return new WaitForSeconds(0.1f); 
 		pathFinder.enabled = true;
+	}
+
+	public void goodCitizenLeft() { // or died...
+		goodCitizens--;
 	}
 
 	void Start() {
