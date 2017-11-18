@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,9 +6,13 @@ using UnityEngine.AI;
 public class Citizen : Person {
 
 	public Sprite citizen_turned;
+	public Sprite citizen_stupid;
 	public Transform exitPosition;
 	public bool turned = false;
+	public bool stupid = false;
 	private bool cameraFollowing = false; //true if citizen near exit to win
+
+	private float timeSinceStupidSound = 1000.0f;
 
 
 	private GameObject walkingSprite;
@@ -24,6 +28,13 @@ public class Citizen : Person {
 		bustedSprite = transform.GetChild (1).gameObject;
 		selectNextTarget ();
 		godScript.miniMap.addActor (this);
+		if (tag.Equals ("Stupid")) {
+			transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_stupid;
+			Debug.Log ("stupid citizen.");
+			stupid = true;
+		}
+
+
 	}
 
 	public void bust() {
@@ -39,6 +50,10 @@ public class Citizen : Person {
 		if (tag.Equals ("Busted")) {
 			agent.isStopped = true;
 			return;
+		}
+
+		if (tag.Equals ("Stupid")) {
+			timeSinceStupidSound += Time.deltaTime;
 		}
 
 
@@ -74,30 +89,35 @@ public class Citizen : Person {
 	public void OnTriggerEnter(Collider collision) {		
 		if (collision.gameObject.tag.Equals("Flyer"))
 		{
-			if (!turned) {
+			if ((!turned) && (!stupid)) {
 				turned = true;
 
-                Debug.Log("citizen found flyer");
+				godScript.TryShowFlyer ();
 
-                this.tag = "Turned";
+				Debug.Log ("citizen found flyer");
 
-                godScript.TryShowFlyer();
+				this.tag = "Turned";
 
 				agent.speed = 3.0f;
 
-                transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = citizen_turned;
+				transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite = citizen_turned;
                 
-				GameMaster.getInstance ().notifyCitizenTurned();
+				GameMaster.getInstance ().notifyCitizenTurned ();
 				AkSoundEngine.PostEvent ("Play_pickupFlyer", gameObject);
 
 				godScript.miniMap.removeActor (this); //quickly remove and add to change icon
-                godScript.miniMap.addActor (this); //new actor will be loaded with citizen turned icon on mini map
+				godScript.miniMap.addActor (this); //new actor will be loaded with citizen turned icon on mini map
 			
 				currentTarget = exitPosition.position;
 				agent.SetDestination (currentTarget);
 
 				Destroy (collision.gameObject);
-			}		
+			} else if (stupid) {
+				if (timeSinceStupidSound > 12.0f) {
+					timeSinceStupidSound = 0.0f;
+					AkSoundEngine.PostEvent ("Play_StupidCitizen", gameObject);
+				}
+			}
 		}
 	}
 	public void OnCollisionStay(Collision collision) {

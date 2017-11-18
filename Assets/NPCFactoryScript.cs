@@ -11,7 +11,7 @@ public class NPCFactoryScript : MonoBehaviour {
 	public Transform gravityFix;
 	public Transform exitPosition;
 
-	public void spawnNPC(SpawnPoint sp, int uuidCount) {
+	public void spawnNPC(SpawnPoint sp, int uuidCount, bool spawnStupidCitizens) {
 		if (sp.npcType == NPCType.CITIZEN) {			
 			Citizen citizenInstance = Instantiate (citizenPrefab, sp.startPosition.position, sp.startPosition.rotation) as Citizen;
 			citizenInstance.SetUuid (uuidCount);
@@ -21,6 +21,11 @@ public class NPCFactoryScript : MonoBehaviour {
 			citizenInstance.exitPosition = exitPosition;
 			citizenInstance.GetComponent<NavMeshAgent> ().Warp (sp.startPosition.position);
 			StartCoroutine(HoldNavAgent(citizenInstance.GetComponent<NavMeshAgent>()));
+			if (spawnStupidCitizens) {
+				if (Random.Range (0, 100) > 50) {
+					citizenInstance.tag = "Stupid";
+				}
+			}
 			citizenInstance.GetComponent<NavMeshAgent> ().enabled = true;
 
 			Debug.Log ("spawned citizen");

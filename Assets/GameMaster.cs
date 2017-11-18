@@ -22,6 +22,8 @@ public class GameMaster {
 	private int heckerChaseCount = 0;
 	private int turnedCitizenCount = 0;
 
+	private bool policeSpawn;
+
 
 	public void registerGodScript(GodScript gs) {
 		godScript = gs;
@@ -35,12 +37,17 @@ public class GameMaster {
         {
             result = flyerAmmoManager.checkAndDropFlyer();
         }
-        Debug.Log("checkAndDropFlyer(): " + result);
         return result;
     }
 
 	public void setScoreTowin(int toWin) { //todo: dirty - fix!
 		scoreToWin = toWin;
+	}
+	public string getScoreToWin() {
+		return scoreToWin.ToString();
+	}
+	public void setPoliceSpawn(bool spawn) {
+		policeSpawn = spawn;
 	}
 
 	public void notifyLevelStarted() {
@@ -64,6 +71,11 @@ public class GameMaster {
 		updateScoreRoutine ();
 		turnedCitizenCount++;
 		updateCitizenTurnedState ();
+
+		if (policeSpawn) { // spawn two new police men for every recruited citizen
+			godScript.spawnRandomPolice ();
+			godScript.spawnRandomPolice ();
+		}
 	}
 
 	public void notifyHeckerDied() {
@@ -90,7 +102,6 @@ public class GameMaster {
 			heckerChaseCount = 0;
 			AkSoundEngine.SetState ("PlayerState", "Normal");
 		} else {
-		//	Debug.Log ("chasing player MUSIC");
 			AkSoundEngine.SetState ("PlayerState", "Chased");
 		}
 	}
@@ -102,7 +113,6 @@ public class GameMaster {
 		return gmInstance;
 	}
 	private void updateScoreRoutine() { //called after every change of current score
-		updateMusic (currentScore);
 		godScript.updateScoreLabel (currentScore);
 		checkWin ();
 	}
@@ -112,19 +122,6 @@ public class GameMaster {
 			
 	}
 
-	private void updateMusic(int score) {
-	/*	if (score > 70) {
-			AkSoundEngine.SetState ("RevoState", "level5");
-		}
-		else if (score > 50) {
-			AkSoundEngine.SetState ("RevoState", "level4");
-		}
-		else if (score > 20) {
-			AkSoundEngine.SetState ("RevoState", "level3");
-		}
-		else if (score > 0) {
-			AkSoundEngine.SetState ("RevoState", "level2");
-		}*/
-	}
+
 
 }
