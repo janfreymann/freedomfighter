@@ -76,8 +76,8 @@ public class GodScript : MonoBehaviour {
 			GodScript.boundsYmin = -15.0f;
 			GodScript.boundsYmax = 14.7f;
 		} else if (scene.name.Equals ("LargeScene")) {
-			scoreToWin = 200;
-			ammo = 15;
+			scoreToWin = 250;
+			ammo = 21;
             levelIndex = 2;
 			GodScript.boundsXmin = -45.21f;
 			GodScript.boundsXmax = 35.63f;
@@ -194,6 +194,8 @@ public class GodScript : MonoBehaviour {
 
     public void EndGame()
     {
+		AkSoundEngine.PostEvent ("Stop_Atmo", mControl.gameObject);
+		AkSoundEngine.PostEvent ("Stop_RevolutionMusic", mControl.gameObject);
         SceneManager.LoadScene("StartMenuScene");
     }
 

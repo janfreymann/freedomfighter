@@ -60,11 +60,11 @@ public class Citizen : Person {
 		float distance2target = Vector3.Distance (transform.position, currentTarget);
 		//Debug.Log (distance2target);
 
-		if ((turned) && (!cameraFollowing) && (distance2target < 6.0f)) {
-			Debug.Log ("camera follows citizen - currently disabled");
+	//	if ((turned) && (!cameraFollowing) && (distance2target < 6.0f)) {
+		//	Debug.Log ("camera follows citizen - currently disabled");
 			//cameraFollowing = true;
 			//Camera.current.gameObject.GetComponent<FollowPlayer> ().setPlayer (transform);
-		}
+	//	}
 		if (distance2target < 2f) {
 			if (turned)  // close enough to exit to win
 			{

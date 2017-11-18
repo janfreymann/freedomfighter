@@ -24,7 +24,7 @@ public class NPCFactoryScript : MonoBehaviour {
 			citizenInstance.GetComponent<NavMeshAgent> ().Warp (sp.startPosition.position);
 			StartCoroutine(HoldNavAgent(citizenInstance.GetComponent<NavMeshAgent>()));
 			if ((spawnStupidCitizens && goodCitizens > 0)) { // always keep between one
-				if ((Random.Range (0, 100) > 50) || (goodCitizens >= 3)) { // and three good citizens on the map
+				if ((Random.Range (0, 100) > 30) || (goodCitizens >= 3)) { // and three good citizens on the map
 					citizenInstance.tag = "Stupid";
 				}
 			} else {
