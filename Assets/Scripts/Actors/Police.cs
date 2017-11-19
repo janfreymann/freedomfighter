@@ -27,6 +27,7 @@ public class Police : Person {
 		patrolSprite = transform.GetChild (1).gameObject;
 		godScript.miniMap.addActor (this);
 		selectNextTarget ();
+		agent.speed = Random.Range (1.9f, 2.1f);
 	}
 	
 	// Update is called once per frame
