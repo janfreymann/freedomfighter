@@ -2724,8 +2724,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553391929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 319, y: 179.5, z: 0}
-  m_LocalScale: {x: 0.7975, y: 0.7975, z: 0.7975}
+  m_LocalPosition: {x: 476.5, y: 268, z: 0}
+  m_LocalScale: {x: 1.19125, y: 1.19125, z: 1.19125}
   m_Children:
   - {fileID: 390374568}
   m_Father: {fileID: 0}
@@ -3219,6 +3219,7 @@ MonoBehaviour:
     type: 2}
   gravityFix: {fileID: 1980524779}
   exitPosition: {fileID: 649289634}
+  goodCitizens: 0
 --- !u!1 &1758540702
 GameObject:
   m_ObjectHideFlags: 0
@@ -3583,6 +3584,12 @@ Prefab:
       propertyPath: m_FontData.m_FontSize
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 114024467759349086, guid: b8b027adbcd5f4ed898b9764268f8415,
+        type: 2}
+      propertyPath: ammoPrefab
+      value: 
+      objectReference: {fileID: 1716073707706526, guid: f4b0f872d8b6c4482a3b9ab3e02885cd,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b027adbcd5f4ed898b9764268f8415, type: 2}
   m_IsPrefabParent: 0

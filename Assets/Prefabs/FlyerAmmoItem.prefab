@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224799102263834844}
   - component: {fileID: 222818564379192232}
   - component: {fileID: 114271747248248168}
+  - component: {fileID: 114270355643530594}
   m_Layer: 5
   m_Name: FlyerAmmoItem
   m_TagString: Untagged
@@ -28,6 +29,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114270355643530594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716073707706526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc20ca112456c481b8ba830199dadf10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114271747248248168
 MonoBehaviour:
   m_ObjectHideFlags: 1

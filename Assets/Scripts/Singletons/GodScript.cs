@@ -80,7 +80,7 @@ public class GodScript : MonoBehaviour {
 			ammo = 21;
             levelIndex = 2;
 			GodScript.boundsXmin = -45.21f;
-			GodScript.boundsXmax = 35.63f;
+			GodScript.boundsXmax = 34.2f;
 			GodScript.boundsYmax = 41.4f;
 			GodScript.boundsYmin = -39.6f;
 			spawnStupidCitizens = true;
@@ -103,6 +103,7 @@ public class GodScript : MonoBehaviour {
 		gm.setPoliceSpawn (policeSpawn);
 
 		gm.notifyLevelStarted ();
+		flyerAmmo.setCharacter (player);
 		flyerAmmo.AddAmmo (ammo);
 
         pauseOverlay.gameObject.SetActive(false);

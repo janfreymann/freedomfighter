@@ -16,10 +16,9 @@ public class PlayerCharacter : Person {
 	new void Start () {
 		base.Start ();
 		alive = true;
-		charSpeed = 5f; 
+		charSpeed = 5f;
 		godScript.miniMap.addActor (this);
 		this.uuid = 99999;
-
 	}
 		
 	// Update is called once per frame
@@ -65,38 +64,39 @@ public class PlayerCharacter : Person {
 			}
 		}
 
-		//collider quick fix, keep in bounds!
+		//keep player in map boundsß
 		float localX = transform.localPosition.x;
 		float localY = transform.localPosition.y;
 		float localZ = transform.localPosition.z;
 
+		if (transform.localPosition.x < GodScript.boundsXmin)
+		{
+			transform.localPosition = new Vector3(GodScript.boundsXmin, localY, localZ);
+		}
+		else if (transform.localPosition.x > GodScript.boundsXmax)
+		{
+			transform.localPosition = new Vector3(GodScript.boundsXmax, localY, localZ);
+		}
 
-
-        if (transform.localPosition.x < GodScript.boundsXmin)
-        {
-            transform.localPosition = new Vector3(GodScript.boundsXmin, localY, localZ);
-        }
-        else if (transform.localPosition.x > GodScript.boundsXmax)
-        {
-            transform.localPosition = new Vector3(GodScript.boundsXmax, localY, localZ);
-        }
-
-        if (transform.localPosition.y < GodScript.boundsYmin)
-        {
-            transform.localPosition = new Vector3(localX, GodScript.boundsYmin, localZ);
-        }
-        else if (transform.localPosition.y > GodScript.boundsYmax)
-        {
-            transform.localPosition = new Vector3(localX, GodScript.boundsYmax, localZ);
-        }
+		if (transform.localPosition.y < GodScript.boundsYmin)
+		{
+			transform.localPosition = new Vector3(localX, GodScript.boundsYmin, localZ);
+		}
+		else if (transform.localPosition.y > GodScript.boundsYmax)
+		{
+			transform.localPosition = new Vector3(localX, GodScript.boundsYmax, localZ);
+		}
 	}
+
 	private void dropFlyer() {
 		Debug.Log ("dropFlyer()");
 		GameMaster gm = GameMaster.getInstance ();
-		if (gm.CheckAndDropFlyer ()) {
-			Transform nFlyer = Instantiate (flyerPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+		if (gm.CheckAndDropFlyer (transform.position)) {
 			AkSoundEngine.PostEvent ("Play_FlyerDrop", gameObject);
 		}
+	}
+	public void showDroppedFlyer(Vector3 position) {
+		Transform nFlyer = Instantiate (flyerPrefab, position, Quaternion.identity);
 	}
 	protected void MoveLeft() {
 		_rigidbody.velocity = new Vector3 (-charSpeed, 0.0f,  0.0f);

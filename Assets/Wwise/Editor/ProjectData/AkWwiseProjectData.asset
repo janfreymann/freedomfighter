@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{B8FDC946-EBA3-48A3-8620-8CE527A4E6DB}'
-    m_lastTimePsrt1: 1592394496
-    m_lastTimePart2: -1999294974
+    m_lastTimePsrt1: -1206682368
+    m_lastTimePart2: -1999294641
     List:
     - Name: Play_Atmo
       Path: Default Work Unit/Play_Atmo
@@ -198,16 +198,6 @@ MonoBehaviour:
         ObjectType: 3
       ID: -164684868
       Guid: ef32d2749cd2f649a329bc9c578f82f5
-      maxAttenuation: 0
-    - Name: Play_WhistleCitizen
-      Path: Default Work Unit/Play_WhistleCitizen
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Play_WhistleCitizen
-        ObjectType: 3
-      ID: 512715596
-      Guid: 6e4af2291bb3384eaeeafbbd86c3edcc
       maxAttenuation: 0
     - Name: Play_WhistlePlayer
       Path: Default Work Unit/Play_WhistlePlayer

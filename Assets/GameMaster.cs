@@ -33,11 +33,11 @@ public class GameMaster {
 	public void registerFlyerAmmoManager(FlyerAmmoManager fam) {
 		flyerAmmoManager = fam;
 	}
-	public bool CheckAndDropFlyer() {
+	public bool CheckAndDropFlyer(Vector3 pos) {
         bool result = false;
         if (!godScript.showingFlyer)
         {
-            result = flyerAmmoManager.checkAndDropFlyer();
+            result = flyerAmmoManager.checkAndDropFlyer(pos);
         }
         return result;
     }
